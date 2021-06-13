@@ -1,0 +1,11 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+
+homework7-Star-wars/.idea
+homework6-Sign-up-form/.idea

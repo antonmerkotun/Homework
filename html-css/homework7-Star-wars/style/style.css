@@ -1,0 +1,28 @@
+body {
+    background-color: black;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.block {
+    width: 80%;
+    color: #f5cf46;
+    font-size: 10vh;
+    margin: 0 auto;
+    animation-name: block-up;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes block-up {
+    0% {
+        transform: perspective(1000px) rotateX(30deg) translateY(60%);
+    }
+    100% {
+        transform: perspective(1000px) rotateX(30deg) translateY(-155%);
+    }
+}
+
