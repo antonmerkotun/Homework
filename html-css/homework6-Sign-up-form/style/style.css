@@ -2,6 +2,7 @@ body {
     background-image: url("../img/background.png");
     background-repeat: no-repeat;
     background-size: 100%;
+    overflow: hidden;
 }
 
 * {
@@ -37,10 +38,8 @@ body {
     color: #ffffff;
 }
 
-.icons-calendar,
-.icons-mail,
-.icons-compas {
-    padding-right: 25px;
+.icons a {
+    margin-right: 25px;
 }
 
 .icons svg:hover path {
@@ -65,8 +64,16 @@ body {
 
                             /*form*/
 
+
+.absolute {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95vh;
+    width: 100vw;
+}
+
 .registration {
-    margin: 55px auto 0;
     width: 444px;
     background-color: #ffffff;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.52);
@@ -142,6 +149,10 @@ body {
 
 .google:active {
     background-color: #AB1F09;
+}
+
+.facebook, .google, .account:hover {
+    cursor: pointer;
 }
 
 .text-button::before {
