@@ -19,7 +19,7 @@ if ( ageUser === '' || isNaN(ageUser) || !ageUser){
 if (ageUser < 18){
     alert('Вам не разрешено посещать этот сайт.')
 }
-if (ageUser >= 18 && ageUser <= 22){
+if (ageUser >= 18 && ageUser <= 21){
     let checkingAge = confirm('Ты уверен, что хочешь продолжить?')
     if (checkingAge === true) {
         alert('Добро пожаловать ' +nameUser)
@@ -27,6 +27,6 @@ if (ageUser >= 18 && ageUser <= 22){
         alert('Вам не разрешено посещать этот сайт.')
     }
 }
-if (ageUser > 22){
+if (ageUser > 21){
     alert('Добро пожаловать ' +nameUser)
 }
