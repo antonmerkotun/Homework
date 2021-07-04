@@ -1,7 +1,3 @@
-.button {
-    height: 200px;
-}
-
 * {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -136,6 +132,7 @@ header > div{
     font-size: 15px;
     line-height: 32px;
     border-radius: 5px;
+    border: none;
 }
 
 .butt-grin {
@@ -147,6 +144,12 @@ header > div{
     margin-left: 13px;
     background-color: #00CBF6;
 }
+
+
+.butt > button:active {
+    border: 1px solid black;
+}
+
 
                                 /*option*/
 
@@ -186,7 +189,7 @@ header > div{
                                 /*title*/
 .title {
     position: relative;
-    margin: 80px auto;
+    padding-top: 80px;
 }
 
 .title-center {
@@ -202,7 +205,7 @@ header > div{
     width: 80px;
     border-bottom: 2px solid #18CFAB;
     position: absolute;
-    top: 74px;
+    top: 140px;
     right: 545px;
 }
 .title-center::after {
@@ -210,7 +213,7 @@ header > div{
     width: 80px;
     border-bottom: 2px solid #18CFAB;
     position: absolute;
-    top: 78px;
+    top: 145px;
     right: 530px;
 }
 
@@ -285,16 +288,28 @@ header > div{
     padding-top: 12px;
 }
 
-.purchase-now > button {
+.button-grin {
     height: 63px;
     width: 168px;
     background-color: #18CFAB;
     color: #ffffff;
     text-transform: uppercase;
     margin-top: 67px;
+    border-radius: 5px;
+    border: none;
+    position: relative;
+}
+
+.button-grin:active {
+    background-color: #1b5349;
 }
 
                             /*our-amazing-work*/
+
+.our-amazing-work {
+    background-color: #E9EDEF;
+    text-align: center;
+}
 
 .our-amazing-work-menu {
     display: flex;
@@ -305,11 +320,8 @@ header > div{
 
 .our-amazing-work-menu-block {
     height: 58px;
-    /*width: 195px;*/
     border: 1px solid #EDEFEF;
     background-color: #F8FCFE;
-    text-align: center;
-    box-sizing: border-box;
 }
 
 .our-amazing-work-menu-block > p {
@@ -357,21 +369,253 @@ header > div{
     grid-template-rows: 1fr 1fr 1fr;
     text-align: center;
     line-height: 0;
+    width: 1140px;
+}
+
+.our-amazing-work-img > div > img {
+    height: 206px;
+    width: 285px;
+}
+
+.text-button-right {
+    padding-left: 20px;
 }
 
 
+.text-button-right::before {
+    content: "";
+    width: 18px;
+    border-bottom: 5px solid #ffffff;
+    position: absolute;
+    bottom: 29px;
+    left: 11px;
+}
+
+.text-button-right::after {
+    content: "";
+    height: 18px;
+    border-left: 5px solid #ffffff;
+    position: absolute;
+    bottom: 23px;
+    right: 145px;
+}
+
+.button-padding {
+    margin-bottom: 100px;
+}
+
+                            /*breaking-news*/
+
+.breaking-news-menu {
+    margin-top: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 650px;
+    text-align: center;
+}
+
+.breaking-news-menu-block {
+    position: relative;
+}
+
+.block-date {
+    position: absolute;
+    width: 70px;
+    height: 68px;
+    background-color: #203E38;
+    bottom: 257px;
+    right: 14px;
+}
+
+.block-date:hover {
+    background-color: #18CFAB;
+}
+
+.block-date > p {
+    color: #ffffff;
+    padding-top: 12px;
+    font-weight: 400;
+}
+
+.block-content > a {
+    font-size: 18px;
+    line-height: 39px;
+    color: #717171;
+    margin-right: 50px;
+}
+
+.block-content > a:hover {
+    color: #18CFAB;
+}
+
+.block-content > div > p {
+    display: inline-block;
+}
 
 
+.block-content > div {
+    margin-right: 15%;
+    color: #777777;
+    position: relative;
+}
 
+.block-content > div > p {
+    font-size: 14px;
+    line-height: 39px;
+    font-weight: 300;
+}
 
+.block-content-right {
+    margin-left: 30px;
+}
 
+.block-content-left::after {
+    content: "";
+    height: 14px;
+    border-left: 1px solid #777777;
+    position: absolute;
+    bottom: 12px;
+    right: 132px;
+}
 
+                        /*what-people-say*/
 
+.what-people-say {
+    background-image: url("../img/what-people-say/what-people-say-background.png");
+    height: 853px;
+    margin-top: 100px;
+}
 
+.what-people-say > div > p {
+    color: #FFFFFF;
+}
 
+.what-people-say-info {
+    margin-top: 100px;
+    text-align: center;
+}
 
+.what-people-say-info > p {
+    margin-top: 36px;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 30px;
+    color: #BBBBBB;
+    opacity: 0.5;
+}
 
+.people-gallery {
+    text-align: center;
+    margin-top: 37px;
+}
 
+.people-gallery > p:nth-child(1){
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 700;
+    color: #18CFAB;
+}
+
+.people-gallery > p:nth-child(2){
+    font-size: 15px;
+    line-height: 30px;
+    font-weight: 300;
+    opacity: 0.5;
+}
+
+.people-gallery-img {
+    margin-top: 38px;
+}
+
+.people-gallery-img > img {
+    height: 143px;
+    width: 142px;
+    border-radius: 50%;
+    border: 10px solid #114C4B;
+}
+
+.people-gallery-slider {
+    margin-top: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 500px;
+    position: relative;
+}
+
+.people-gallery-slider > img {
+    border-radius: 50%;
+    border: 4px solid #114C4B;
+}
+
+.people-gallery-slider > div {
+    height: 31px;
+    width: 31px;
+    border: 1px solid #BBBBBB;
+}
+
+.arrow-left::after {
+    content: "";
+    height: 10px;
+    width: 10px;
+    border-left: 2px solid #777777;
+    border-bottom: 2px solid #777777;
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: 30px;
+    right: 474px;
+}
+
+.arrow-right::after {
+    content: "";
+    height: 10px;
+    width: 10px;
+    border-right: 2px solid #777777;
+    border-bottom: 2px solid #777777;
+    position: absolute;
+    transform: rotate(-45deg);
+    bottom: 30px;
+    right: 15px;
+}
+
+                    /*gallery-of-best-images*/
+
+.gallery-of-best-images {
+    text-align: center;
+}
+
+.gallery-of-best-images-block {
+    margin-top: 115px;
+    display: flex;
+    flex-flow: column wrap;
+    row-gap: 15px;
+
+    height: 1000px;
+    width: 1160px;
+}
+
+.gallery-of-best-images-block-mini {
+    height: 453px;
+    width: 368px;
+}
+
+                            /*footer*/
+
+footer {
+    height: 120px;
+    background-color: #22353F;
+    text-align: center;
+}
+
+footer > p {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 26px;
+    color: #AEAEAE;
+    opacity: 0.5;
+    padding-top: calc(120px - 67px);
+}
 
 
 
