@@ -77,6 +77,10 @@ header > div{
 
                             /*navigation*/
 
+.navigation {
+    display: inline-block;
+}
+
 .navigation > a {
     font-size: 16px;
     line-height: 24px;
@@ -85,14 +89,19 @@ header > div{
     text-transform: uppercase;
     font-weight: 700;
     margin-top: 52px;
-    margin-bottom: 41px;
+    padding-bottom: 47px;
 }
 
 .navigation > a:hover {
     color: #18CFAB;
     border-bottom: 2px solid #18CFAB;
-    padding-bottom: 47px;
 }
+
+.svg:hover {
+    fill: #18CFAB;
+}
+
+                                /*title*/
 
 .title-top {
     text-align: center;
@@ -186,7 +195,7 @@ header > div{
 }
 
                             /*our-services*/
-                                /*title*/
+
 .title {
     position: relative;
     padding-top: 80px;
@@ -217,7 +226,7 @@ header > div{
     right: 530px;
 }
 
-                                /*title-end*/
+                                /*block*/
 
 .our-services-menu {
     display: flex;
@@ -231,6 +240,7 @@ header > div{
     background-color: #F8FCFE;
     text-align: center;
     box-sizing: border-box;
+    position: relative;
 }
 
 .our-services-menu-block > p {
@@ -246,6 +256,19 @@ header > div{
 .our-services-menu-block:active {
     background-color: #18CFAB;
     color: #ffffff;
+}
+
+.our-services-menu-block:active::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-bottom: 1px solid #18CFAB;
+    border-right: 1px solid #18CFAB;
+    position: absolute;
+    transform: rotate(45deg);
+    background-color: #18CFAB;
+    left: 91px;
+    top: 65px;
 }
 
                     /*our-services-information*/
@@ -590,8 +613,7 @@ header > div{
     display: flex;
     flex-flow: column wrap;
     row-gap: 15px;
-
-    height: 1000px;
+    height: 920px;
     width: 1160px;
 }
 
