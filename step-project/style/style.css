@@ -384,16 +384,16 @@ header > div{
 
 .text-button-right::before {
     content: "";
-    width: 18px;
+    width: 17px;
     border-bottom: 5px solid #ffffff;
     position: absolute;
     bottom: 29px;
-    left: 11px;
+    left: 12px;
 }
 
 .text-button-right::after {
     content: "";
-    height: 18px;
+    height: 17px;
     border-left: 5px solid #ffffff;
     position: absolute;
     bottom: 23px;
