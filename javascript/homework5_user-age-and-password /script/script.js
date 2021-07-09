@@ -24,6 +24,7 @@ function createNewUser() {
         }
     };
 }
+
 const newUser = createNewUser();
 newUser.getLogin();
 newUser.getAge();
