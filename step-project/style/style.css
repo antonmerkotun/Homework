@@ -15,8 +15,9 @@ a, button:hover {
 .the-ham {
     background-image: url("../img/sections-background/section-1(header).jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
     height: 100%;
+    background-attachment: fixed;
 }
 
 .color-grin {
@@ -89,12 +90,12 @@ header > div{
     text-transform: uppercase;
     font-weight: 700;
     margin-top: 52px;
-    padding-bottom: 47px;
 }
 
 .navigation > a:hover {
     color: #18CFAB;
     border-bottom: 2px solid #18CFAB;
+    padding-bottom: 47px;
 }
 
 .svg:hover {
@@ -452,14 +453,14 @@ header > div{
     right: 14px;
 }
 
-.block-date:hover {
-    background-color: #18CFAB;
-}
-
 .block-date > p {
     color: #ffffff;
     padding-top: 12px;
     font-weight: 400;
+}
+
+.block-date:hover {
+    background-color: #18CFAB;
 }
 
 .block-content > a {
@@ -503,6 +504,65 @@ header > div{
     right: 132px;
 }
 
+                            /*hover*/
+
+.block-1:hover .block-hover-1{
+    background-color: #18CFAB;
+}
+
+.block-1:hover .text-hover-1{
+    color: #18CFAB;
+}
+
+.block-2:hover .block-hover-2{
+    background-color: #18CFAB;
+}
+
+.block-2:hover .text-hover-2{
+    color: #18CFAB;
+}
+.block-3:hover .block-hover-3{
+    background-color: #18CFAB;
+}
+
+.block-3:hover .text-hover-3{
+    color: #18CFAB;
+}
+.block-4:hover .block-hover-4{
+    background-color: #18CFAB;
+}
+
+.block-4:hover .text-hover-4{
+    color: #18CFAB;
+}
+.block-5:hover .block-hover-5{
+    background-color: #18CFAB;
+}
+
+.block-5:hover .text-hover-5{
+    color: #18CFAB;
+}
+.block-6:hover .block-hover-6{
+    background-color: #18CFAB;
+}
+
+.block-6:hover .text-hover-6{
+    color: #18CFAB;
+}
+.block-7:hover .block-hover-7{
+    background-color: #18CFAB;
+}
+
+.block-7:hover .text-hover-7{
+    color: #18CFAB;
+}
+.block-8:hover .block-hover-8{
+    background-color: #18CFAB;
+}
+
+.block-8:hover .text-hover-8{
+    color: #18CFAB;
+}
                         /*what-people-say*/
 
 .what-people-say {
