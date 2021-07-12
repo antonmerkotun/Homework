@@ -440,6 +440,7 @@ header > div{
 
 .breaking-news-menu-block {
     position: relative;
+    display: block;
 }
 
 .block-date {
