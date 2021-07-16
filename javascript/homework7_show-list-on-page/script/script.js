@@ -1,9 +1,22 @@
 `use strict`
 
-let fruits = ["Яблоко", "Апельсин", "Слива"];
+function arrayString(array, parent) {
 
+    let li = array.map(function (element) {
+        let li = document.createElement(`li`)
+        li.textContent = element;
+        return li;
+    });
+    console.log(li)
+    const ul = document.createElement(`ul`);
+    parent.append(ul);
 
-for (let fruit of fruits) {
-    console.log( fruit );
+    li.forEach((element) => {
+        ul.append(element);
+
+        console.log(element)
+    })
 }
 
+
+arrayString(["hello", "world", "Kiev", "Kharkiv", "Odessa", "Lviv"],document.body)
