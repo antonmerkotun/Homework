@@ -439,130 +439,79 @@ header > div{
     text-align: center;
 }
 
-.breaking-news-menu-block {
+.breaking-news-block {
     position: relative;
-    display: block;
-}
 
-.block-date {
-    position: absolute;
-    width: 70px;
-    height: 68px;
-    background-color: #203E38;
-    bottom: 257px;
-    right: 14px;
-}
-
-.block-date > p {
-    color: #ffffff;
-    padding-top: 12px;
-    font-weight: 400;
-}
-
-.block-date:hover {
-    background-color: #18CFAB;
-}
-
-.block-content > a {
-    font-size: 18px;
-    line-height: 39px;
-    color: #717171;
-    margin-right: 50px;
-}
-
-.block-content > a:hover {
-    color: #18CFAB;
-}
-
-.block-content > div > p {
-    display: inline-block;
 }
 
 
-.block-content > div {
-    margin-right: 15%;
-    color: #777777;
-    position: relative;
-}
 
-.block-content > div > p {
-    font-size: 14px;
-    line-height: 39px;
-    font-weight: 300;
-}
 
-.block-content-right {
-    margin-left: 30px;
-}
+/*.breaking-news-menu-block {*/
+/*    position: relative;*/
+/*    display: block;*/
+/*}*/
 
-.block-content-left::after {
-    content: "";
-    height: 14px;
-    border-left: 1px solid #777777;
-    position: absolute;
-    bottom: 12px;
-    right: 132px;
-}
+/*.block-date {*/
+/*    position: absolute;*/
+/*    width: 70px;*/
+/*    height: 68px;*/
+/*    background-color: #203E38;*/
+/*    bottom: 257px;*/
+/*    right: 14px;*/
+/*}*/
 
-                            /*hover*/
+/*.block-date > p {*/
+/*    color: #ffffff;*/
+/*    padding-top: 12px;*/
+/*    font-weight: 400;*/
+/*}*/
 
-.block-1:hover .block-hover-1{
-    background-color: #18CFAB;
-}
+/*.block-date:hover {*/
+/*    background-color: #18CFAB;*/
+/*}*/
 
-.block-1:hover .text-hover-1{
-    color: #18CFAB;
-}
+/*.block-content > a {*/
+/*    font-size: 18px;*/
+/*    line-height: 39px;*/
+/*    color: #717171;*/
+/*    margin-right: 50px;*/
+/*}*/
 
-.block-2:hover .block-hover-2{
-    background-color: #18CFAB;
-}
+/*.block-content > a:hover {*/
+/*    color: #18CFAB;*/
+/*}*/
 
-.block-2:hover .text-hover-2{
-    color: #18CFAB;
-}
-.block-3:hover .block-hover-3{
-    background-color: #18CFAB;
-}
+/*.block-content > div > p {*/
+/*    display: inline-block;*/
+/*}*/
 
-.block-3:hover .text-hover-3{
-    color: #18CFAB;
-}
-.block-4:hover .block-hover-4{
-    background-color: #18CFAB;
-}
 
-.block-4:hover .text-hover-4{
-    color: #18CFAB;
-}
-.block-5:hover .block-hover-5{
-    background-color: #18CFAB;
-}
+/*.block-content > div {*/
+/*    margin-right: 15%;*/
+/*    color: #777777;*/
+/*    position: relative;*/
+/*}*/
 
-.block-5:hover .text-hover-5{
-    color: #18CFAB;
-}
-.block-6:hover .block-hover-6{
-    background-color: #18CFAB;
-}
+/*.block-content > div > p {*/
+/*    font-size: 14px;*/
+/*    line-height: 39px;*/
+/*    font-weight: 300;*/
+/*}*/
 
-.block-6:hover .text-hover-6{
-    color: #18CFAB;
-}
-.block-7:hover .block-hover-7{
-    background-color: #18CFAB;
-}
+/*.block-content-right {*/
+/*    margin-left: 30px;*/
+/*}*/
 
-.block-7:hover .text-hover-7{
-    color: #18CFAB;
-}
-.block-8:hover .block-hover-8{
-    background-color: #18CFAB;
-}
+/*.block-content-left::after {*/
+/*    content: "";*/
+/*    height: 14px;*/
+/*    border-left: 1px solid #777777;*/
+/*    position: absolute;*/
+/*    bottom: 12px;*/
+/*    right: 132px;*/
+/*}*/
 
-.block-8:hover .text-hover-8{
-    color: #18CFAB;
-}
                         /*what-people-say*/
 
 .what-people-say {

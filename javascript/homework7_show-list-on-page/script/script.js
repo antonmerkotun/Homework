@@ -9,7 +9,7 @@ function arrayString(array, parent) {
     });
     console.log(li)
     const ul = document.createElement(`ul`);
-    parent.append(ul);
+    parent.prepend(ul);
 
     li.forEach((element) => {
         ul.append(element);
