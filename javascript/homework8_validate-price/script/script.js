@@ -3,58 +3,51 @@
 const div = document.createElement("div");
 const span = document.createElement("span");
 const input = document.createElement("input");
-document.body.prepend(div);
-div.append(span);
-div.append(input);
-span.textContent = `Price`;
-
-
+const spanMouseOut = document.createElement('span')
+const spanOut = document.createElement('span')
+const button = document.createElement('button')
 const colorGreen = `rgb(41, 121, 26)`;
 const colorBlack = `rgb(0, 0, 0)`;
 const colorRed = `rgb(255, 0, 0)`;
+span.textContent = `Price`;
+document.body.prepend(div);
+div.append(span);
+div.append(input);
 
-const onMouseHover = function () {
-    input.style.borderColor = colorGreen;
-}
-input.addEventListener(`mouseover`, onMouseHover);
+input.addEventListener('focus', (event) => {
+    event.target.style.borderColor = colorGreen;
+    input.value = ''
+    console.log(event)
+    console.log(event.target)
+    spanOut.remove()
+    button.remove()
+    spanMouseOut.remove()
+});
 
-const onMouseOut = function () {
-    input.style.borderColor = colorBlack;
-}
-input.addEventListener(`mouseout`, onMouseOut);
-
-const divTop = document.createElement("div");
-document.body.prepend(divTop);
-
-const onMouseOutSpan = function () {
-    const spanOut = document.createElement('span')
-    divTop.prepend(spanOut)
-    const button = document.createElement('button')
-    button.textContent = `X`
-    divTop.append(button)
-    spanOut.textContent = `Текущая цена: ${input.value}`
-    input.style.color = colorGreen
-    input.removeEventListener(`mouseout`, onMouseOutSpan);
+input.addEventListener('blur', (event) => {
+    event.target.style.borderColor = colorBlack;
+    if (input.value > 0){
+        spanOut.textContent = `Текущая цена: ${input.value}`
+        button.textContent = `X`
+        document.body.prepend(button)
+        document.body.prepend(spanOut)
+        input.style.color = colorGreen}
     const bnActive = function () {
         input.value = ``
-        divTop.remove()
+        spanOut.remove()
+        button.remove()
     }
     button.addEventListener(`mousedown`, bnActive);
+});
 
-}
-input.addEventListener(`mouseout`, onMouseOutSpan);
-
-const inputOut = function () {
-    if (input.value <= 0 || input.value === ``){
-        input.style.borderColor = colorRed;
-        divTop.remove()
-        const p = document.createElement('p')
-        div.append(p)
-        p.textContent = `Please enter correct price`
+function mouseOver() {
+    if (input.value < 0){
+        document.body.append(spanMouseOut)
+        input.style.borderColor = colorRed
+        spanMouseOut.textContent = 'Please enter correct price'
     }
-        input.removeEventListener(`mouseout`, inputOut);
 }
-input.addEventListener(`mouseout`, inputOut);
+input.addEventListener('mouseout', mouseOver)
 
 
 
