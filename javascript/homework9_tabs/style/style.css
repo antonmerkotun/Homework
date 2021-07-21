@@ -22,8 +22,15 @@ ul {
     cursor: pointer;
 }
 
-.tabs-title.active {
+.active-title {
     background-color: #937341;
     color: #23201D;
 }
 
+.tabs-text {
+    display: none;
+}
+
+.tabs-text.active-text {
+    display: block;
+}
