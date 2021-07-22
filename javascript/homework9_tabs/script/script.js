@@ -8,6 +8,7 @@ function tab() {
     liTitle.forEach(item => {
         item.addEventListener('click', selectLiTitle)
     })
+
     function selectLiTitle() {
         liTitle.forEach(item => {
             item.classList.remove(`active-title`)
@@ -23,29 +24,7 @@ function tab() {
         })
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 tab()
-
-
-
-
-
-// li.addEventListener('mouseout', (event) => {
-//
-// });
-
 
 
 
