@@ -4,6 +4,7 @@ function tab() {
     let liTitle = document.querySelectorAll('.tabs-title')
     let liText = document.querySelectorAll('.tabs-text')
     let tabName;
+    console.log(liTitle);
 
     liTitle.forEach(item => {
         item.addEventListener('click', selectLiTitle)
