@@ -306,8 +306,9 @@ input[type="checkbox"]:checked + label:after {
     height: 40px;
     width: 200px;
     border-radius: 50%;
-    border: 0;
 }
+
+
 
 
 
