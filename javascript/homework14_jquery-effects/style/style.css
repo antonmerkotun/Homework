@@ -16,6 +16,7 @@
     align-items: center;
     background-color: #313131;
     color: #FFFFFF;
+    position: relative;
 }
 
 .navbar-logo-image {
@@ -333,11 +334,9 @@ footer {
     margin-top: 77px;
     height: 80px;
     align-items: center;
-    /*background-color: #000000;*/
     color: #FFFFFF;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /*grid-gap: 60px;*/
     grid-template-areas:
     "footer-1 footer-2"
 }
@@ -361,4 +360,31 @@ footer {
 .footer-2-img {
     text-align: right;
     align-items: center;
+}
+.block-menu {
+    position: absolute;
+    right: 100px;
+    top: 100px;
+}
+
+.block-menu a {
+    margin-left: 30px;
+}
+
+.button {
+    display: none;
+}
+
+.active-button {
+    display: block;
+    position: fixed;
+    right: 100px;
+    bottom: 100px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.toggle {
+    position: absolute;
 }

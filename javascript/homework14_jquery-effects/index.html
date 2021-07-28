@@ -24,6 +24,12 @@
             <a href="#" class="navbar-bn-link">Blog</a>
             <a href="#" class="navbar-bn-link">News</a>
         </div>
+        <div class="block-menu">
+            <a href="#head1" class="menu">Most popular posts</a>
+            <a href="#head2" class="menu">Our most popular clients</a>
+            <a href="#head3" class="menu">Top rated</a>
+            <a href="#head4" class="menu">Hot-news</a>
+        </div>
         <div class="navbar-search">
             <img class="navbar-search-image" src="img/navbar-search.png" alt="navbar-search-image" height="17" width="17"/></div>
     </nav>
@@ -37,7 +43,7 @@
 <section class="most-popular-posts">
                                                 <!--aside-image-->
     <section class="container-icon-item">
-            <h3 class="subject-text">Most popular posts</h3>
+        <h3 class="subject-text" id="most"><a id="head1"></a>Most popular posts</h3>
         <section class="icon container">
             <div class="icon-item">
                 <img src="./img/vanglo-house.png" height="259" width="370" alt="image-aside">
@@ -65,10 +71,11 @@
             </div>
         </section>
     </section>
+    <button class="toggle">Убрать блок / Вернуть блок</button>
 </section>
                                             <!--parallax-center-image-->
 <section class="parallax-center parallax">
-    <h2 class="parallax-text">our most popular clients</h2>
+    <h2 class="parallax-text"><a id="head2"></a>our most popular clients</h2>
         <div class="scribble-box"><p class="scribble"></p></div>
     <div class="brands">
         <img src="" alt="">
@@ -81,7 +88,7 @@
 </section>
                                             <!--latest-post-thumbnails-->
 <section class="latest-post-thumbnails">
-    <h2 class="title-center">Top rated</h2>
+    <h2 class="title-center"><a id="head3"></a>Top rated</h2>
     <div class="latest-post-img">
         <img src="img/top-rated-1.png" alt="latest-post-image" height="190" width="271">
         <img src="img/top-rated-2.png" alt="latest-post-image" height="190" width="271">
@@ -94,7 +101,7 @@
 </section>
                                                 <!--section-hot-news-->
 <section class="hot-news">
-    <h2 class="title-center">hot-news</h2>
+    <h2 class="title-center"><a id="head4"></a>hot-news</h2>
     <div class="hot-news-content container">
         <div class="item1">
             <div class="item1-1">                       <!--1-->
@@ -180,7 +187,9 @@
         </div>
     </div>
 </div>
+    <button class="button" id="up">Наверх</button>
 </footer>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script/script.js"></script>
 </body>
 </html>
