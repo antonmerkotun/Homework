@@ -1,27 +1,28 @@
 'use strict'
 
-const style = document.getElementById('theme_css');
-const theme = localStorage.getItem('theme') || 'light';
+const changeBtn = document.querySelector('#theme-button');
+const wrap = document.querySelector('.theme');
+changeBtn.addEventListener('click', changeColorTheme);
 
-style.classList.add(theme);
 
-const selectTheme = () => {
-    const check = document.getElementById('theme_css').classList[0] === 'light';
-    if (check) {
-        style.href = './style/style2.css';
-        style.classList.remove('light')
-        style.classList.add('dark');
-
-        localStorage.setItem('theme', 'dark');
+function setNewTheme() {
+    wrap.classList.add('js-wrapper--change');
+    localStorage.setItem('background', 'js-wrapper--change');
+}
+function setOldTheme() {
+    wrap.classList.remove('js-wrapper--change');
+    localStorage.removeItem('background');
+}
+function changeColorTheme() {
+    if (wrap.classList.contains('js-wrapper--change')) {
+        setOldTheme();
     } else {
-        style.href = './style/style.css';
-        style.classList.remove('dark')
-        style.classList.add('light');
-
-        localStorage.setItem('theme', 'light');
+        setNewTheme();
     }
 }
-const button = document.querySelector('.button-theme');
-button.addEventListener('click', selectTheme)
-
-
+function setChangeColorTheme() {
+    if (localStorage.getItem('background')) {
+        setNewTheme();
+    }
+}
+setChangeColorTheme();

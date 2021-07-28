@@ -308,6 +308,10 @@ input[type="checkbox"]:checked + label:after {
     border-radius: 50%;
 }
 
+.js-wrapper--change {
+    background-color: black;
+    background-image: url("../img/background2.png");
+}
 
 
 
