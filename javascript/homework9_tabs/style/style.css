@@ -18,12 +18,12 @@ ul {
 .tabs-title {
     padding: 20px;
     background-color: #23201D;
-    color: #937341;
+    color: #d9d5d0;
     cursor: pointer;
 }
 
-.active-title {
-    background-color: #937341;
+.active-tab {
+    background-color: #629341;
     color: #23201D;
 }
 
@@ -31,6 +31,7 @@ ul {
     display: none;
 }
 
-.tabs-text.active-text {
+.active-text {
     display: block;
+    color: #0A162F;
 }

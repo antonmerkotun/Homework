@@ -27,8 +27,7 @@
 // }
 // tab()
 
-
-const tabsList = document.querySelector('.nav-tabs');
+const tabsList = document.querySelector('.tabs');
 tabsList.addEventListener('click', showTabsContent);
 function showTabsContent(event) {
     const data = event.target.dataset.type;
@@ -40,4 +39,10 @@ function showTabsContent(event) {
 
 
 
+// Взяли контейнер
+// Повесили обработчик функцию
+// взяли дату li ( верхнего Акали например)
+// Нашли класс актив-текст ( текст который отображается  данный момент ) и удалили этот класс с элемента
+// Совпавший селектор - повесили активный класс
+// Так же и с табами ( пункт 4-5)
 
