@@ -242,24 +242,21 @@ header > div{
     text-align: center;
     box-sizing: border-box;
     position: relative;
-}
-
-.our-services-menu-block > p {
     font-weight: 400;
     font-size: 16px;
-    margin-top: 30px;
+    padding-top: 30px;
 }
 
 .our-services-menu-block:hover {
     border: 1px solid #18CFAB;
+    cursor: pointer;
 }
 
-.our-services-menu-block:active {
+.activeOurServicesTab {
     background-color: #18CFAB;
-    color: #ffffff;
 }
 
-.our-services-menu-block:active::before {
+.activeOurServicesTab::before {
     content: "";
     width: 10px;
     height: 10px;
@@ -276,8 +273,14 @@ header > div{
 
 .our-services-information {
     margin-top: 28px;
+    display: none;
+    height: 140px;
+}
+
+.activeOurServicesText {
     display: flex;
 }
+
 
 .our-services-information > p {
     font-weight: 300;
@@ -285,6 +288,10 @@ header > div{
     line-height: 24px;
     color: #777777;
     margin-left: 15px;
+}
+.our-services-information > img {
+    height: 150px;
+    width: 194px;
 }
 
                             /*purchase-now*/
@@ -333,6 +340,7 @@ header > div{
 .our-amazing-work {
     background-color: #E9EDEF;
     text-align: center;
+    padding-bottom: 100px;
 }
 
 .our-amazing-work-menu {
@@ -340,19 +348,18 @@ header > div{
     margin-top: 100px;
     width: 590px;
     text-align: center;
+    margin-bottom: 70px;
 }
 
 .our-amazing-work-menu-block {
-    height: 58px;
+    height: 35px;
     border: 1px solid #EDEFEF;
     background-color: #F8FCFE;
-}
-
-.our-amazing-work-menu-block > p {
     font-weight: 400;
     font-size: 14px;
-    margin-top: 23px;
+    padding-top: 23px;
     color: #717171;
+    cursor: pointer;
 }
 
 .our-amazing-work-menu-block:nth-child(1) {
@@ -387,13 +394,16 @@ header > div{
                     /*our-amazing-work-img*/
 
 .our-amazing-work-img {
-    margin-top: 70px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     text-align: center;
     line-height: 0;
     width: 1140px;
+}
+
+.our-amazing-work-img-none {
+    display: none;
 }
 
 .our-amazing-work-img > div > img {
@@ -428,6 +438,79 @@ header > div{
     margin-bottom: 100px;
 }
 
+.our-amazing-work-img-block{
+    position: relative;
+}
+
+.our-amazing-work-img-hover{
+    position: absolute;
+    height: 206px;
+    width: 285px;
+    top: 0;
+    display: none;
+    background-color: #E9EDEF;
+}
+
+.our-amazing-work-img-block:hover .our-amazing-work-img-hover{
+    display: block;
+}
+
+.our-amazing-work-img-hover::before {
+    content: "";
+    height: 2px;
+    width: 100%;
+    left: 0;
+    background-color: #18CFAB;
+    position: absolute;
+}
+
+.our-amazing-work-img-hover > img {
+    margin-top: 48px;
+    margin-bottom: 25px;
+}
+
+.our-amazing-work-img-hover-left {
+    border: 1px solid #18CFAB;
+    border-radius: 50%;
+    padding: 12px;
+
+}
+
+.square-block {
+    position: relative;
+    border: 1px solid #18CFAB;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 50%;
+    background-color: #18CFAB;
+    margin-bottom: 24px;
+}
+
+.square-white {
+    position: absolute;
+    width: 12px;
+    height: 11px;
+    background-color: #FFFFFF;
+    top: 14px;
+    right: 14px;
+}
+
+.our-amazing-work-img-hover-text-top {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    /*line-height: 25px;*/
+    color: #18CFAB;
+}
+
+.our-amazing-work-img-hover-text-bottom {
+    margin-top: 20px;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 25px;
+    color: #8A8A8A;
+}
                             /*breaking-news*/
 
 .section-break {

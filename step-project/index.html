@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
 </head>
 <body>
 <section class="the-ham">
@@ -72,32 +73,39 @@
     <div class="title content">
         <p class="title-center">Our Services</p>
     </div>
-
-                                            <!--block-->
-
-    <div class="our-services-menu content">
-        <a href="#" onclick="return false" class="our-services-menu-block">
-            <p>Web Design</p>
-        </a>
-        <a href="#" onclick="return false" class="our-services-menu-block">
-            <p>Graphic Design</p>
-        </a>
-        <a href="#" onclick="return false" class="our-services-menu-block">
-            <p>Online Support</p>
-        </a>
-        <a href="#" onclick="return false" class="our-services-menu-block">
-            <p>App Design</p>
-        </a>
-        <a href="#" onclick="return false" class="our-services-menu-block">
-            <p>Online Marketing</p>
-        </a>
-        <a href="#" onclick="return false" class="our-services-menu-block">
-            <p>Seo Service</p>
-        </a>
+        <ul class="our-services-menu content">
+        <li class="our-services-menu-block activeOurServicesTab" data-type="web-design">Web Design</li>
+        <li class="our-services-menu-block" data-type="graphic-design">Graphic Design</li>
+        <li class="our-services-menu-block" data-type="online-support">Online Support</li>
+        <li class="our-services-menu-block" data-type="app-design">App Design</li>
+        <li class="our-services-menu-block" data-type="online-marketing">Online Marketing</li>
+        <li class="our-services-menu-block" data-type="seo-service">Seo Service</li>
+        </ul>
+    <div class="our-services-information activeOurServicesText content" data-block="web-design">
+        <img src="./img/our-services/web-design.jpeg" alt="image">
+        <p>Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; user interface design (UI design); authoring, including standardised code and proprietary software; user experience design (UX design); and search engine optimization. Often many individuals will work in teams covering different aspects of the design process, although some designers will cover them all.[1] The term "web design" is normally used to describe the design process relating to the front-end (client side) design of a website including writing markup. Web design partially overlaps web engineering in the broader scope of web development.</p>
     </div>
-    <div class="our-services-information content">
-        <img src="./img/header-nav/our-services-information.png" alt="image">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adip isicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div class="our-services-information content" data-block="graphic-design">
+        <img src="./img/our-services/graphic-design.jpeg" alt="image">
+        <p>Graphic design is the profession and academic discipline whose activity consists in projecting visual communications intended to transmit specific messages to social groups, with specific objectives. Therefore, it is an interdisciplinary branch of design[1] whose foundations and objectives revolve around the definition of problems and the determination of objectives for decision-making, through creativity, innovation and lateral thinking along with digital tools, transforming them for proper interpretation. This activity helps in the optimization of graphic communications (see also communication design). It is also known as visual communication design, visual design or editorial design.</p>
+    </div>
+    <div class="our-services-information content" data-block="online-support">
+        <img src="./img/our-services/online-support.jpeg" alt="image">
+        <p>An online community, also called an internet community or web community, is a community whose members interact with each other primarily via the Internet. Members of the community usually share common interests. For many, online communities may feel like home, consisting of a "family of invisible friends". Additionally, these "friends" can be connected through gaming communities and gaming companies. Those who wish to be a part of an online community usually have to become a member via a specific site and thereby gain access to specific content or links.</p>
+    </div>
+    <div class="our-services-information content" data-block="app-design">
+        <img src="./img/our-services/app-design.jpeg" alt="image">
+        <p>A mobile application, also referred to as a mobile app or simply an app, is a computer program or software application designed to run on a mobile device such as a phone, tablet, or watch. Mobile applications often stand in contrast to desktop applications which are designed to run on desktop computers, and web applications which run in mobile web browsers rather than directly on the mobile device.
+
+        </p>
+    </div>
+    <div class="our-services-information content" data-block="online-marketing">
+        <img src="./img/our-services/online-marketing.jpeg" alt="image">
+        <p>Online advertising, also known as online marketing, Internet advertising, digital advertising or web advertising, is a form of marketing and advertising which uses the Internet to deliver promotional marketing messages to consumers. Many consumers find online advertising disruptive and have increasingly turned to ad blocking for a variety of reasons. When software is used to do the purchasing, it is known as programmatic advertising.</p>
+    </div>
+    <div class="our-services-information content" data-block="seo-service">
+        <img src="./img/our-services/seo-service.jpeg" alt="image">
+        <p>A Sea Service Ribbon is an award of the United States Navy, U.S. Marine Corps, U.S. Coast Guard, the U.S. Army, and the NOAA Commissioned Officer Corps which recognizes those service members who have performed military duty while stationed on a United States Navy, Coast Guard, Army, or NOAA vessel at sea and/or members of the Navy, Marine Corps or Coast Guard who have been forward-deployed with their home unit. Additional awards of the Sea Service Deployment Ribbon, Naval Reserve Sea Service Ribbon, Coast Guard Sea Service Ribbon, Army Sea Duty Ribbon, and NOAA Corps Sea Service Deployment Ribbon are denoted by bronze and/or silver service stars on the ribbon.</p>
     </div>
 </section>
 <section class="purchase-now">
@@ -112,62 +120,283 @@
     <div class="title content">
         <p class="title-center">Our Amazing Work</p>
     </div>
-    <div class="our-amazing-work-menu content">
-        <a href="#" onclick="return false" class="our-amazing-work-menu-block">
-            <p>All</p>
-        </a>
-        <a href="#" onclick="return false" class="our-amazing-work-menu-block">
-            <p>Graphic Design</p>
-        </a>
-        <a href="#" onclick="return false" class="our-amazing-work-menu-block">
-            <p>Web Design</p>
-        </a>
-        <a href="#" onclick="return false" class="our-amazing-work-menu-block">
-            <p>Landing Pages</p>
-        </a>
-        <a href="#" onclick="return false" class="our-amazing-work-menu-block">
-            <p>Wordpress</p>
-        </a>
-    </div>
+    <ul class="our-amazing-work-menu content">
+        <li class="our-amazing-work-menu-block">All</li>
+        <li class="our-amazing-work-menu-block">Graphic Design</li>
+        <li class="our-amazing-work-menu-block">Web Design</li>
+        <li class="our-amazing-work-menu-block">Landing Pages</li>
+        <li class="our-amazing-work-menu-block">Wordpress</li>
+    </ul>
     <div class="our-amazing-work-img content">
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-0.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/graphic-design-1.jpeg" alt="image" >
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-1.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/graphic-design-1.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-2.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/graphic-design-1.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-3.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/web-design-1.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-4.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/web-design-1.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-5.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/web-design-1.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-6.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/landing-page-1.png" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-7.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/landing-page-1.png" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-8.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/landing-page-1.png" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-9.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/wordpress-1.png" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-10.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/wordpress-1.png" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
-        <div>
-            <img src="./img/our-amazing-work/our-amazing-work-11.png" alt="image">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/wordpress-1.png" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
         </div>
     </div>
-    <button class="button-grin button-padding">
+                                <!--block-click-->
+    <div class="our-amazing-work-img our-amazing-work-img-none content">
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/graphic-design-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/graphic-design-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/graphic-design-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/web-design-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/web-design-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/web-design-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/landing-pages-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/landing-pages-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/landing-pages-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/wordpress-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/wordpress-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+        <div class="our-amazing-work-img-block">
+            <img src="./img/our-amazing-work/wordpress-2.jpeg" alt="image">
+            <div class="our-amazing-work-img-hover">
+                <img src="./img/our-amazing-work/hover/combined.png" alt="image" class="our-amazing-work-img-hover-left">
+                <span class="square-block">
+                    <span class="square-white"></span>
+                </span>
+                <p class="our-amazing-work-img-hover-text-top">creative design</p>
+                <p class="our-amazing-work-img-hover-text-bottom">Web Design</p>
+            </div>
+        </div>
+    </div>
+    <button class="button-grin buttonOurAmazingWork">
         <span class="text-button-right">Load More</span>
     </button>
 </section>
@@ -341,6 +570,7 @@
 <footer>
     <p>© Copyright 2015 <span class="color-grin">theHam</span> | All Rights Reserved</p>
 </footer>
+<script src="script/script.js"></script>
 </body>
 </html>
 
