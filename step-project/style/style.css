@@ -386,7 +386,7 @@ header > div{
     border: 1px solid #18CFAB;
 }
 
-.our-amazing-work-menu-block:active {
+.ourAmazingWorkMenuBlockTab {
     background-color: #18CFAB;
     color: #ffffff;
 }
@@ -440,7 +440,19 @@ header > div{
 
 .our-amazing-work-img-block{
     position: relative;
+    /*display: none;*/
 }
+.active{
+    background-color: #1C2A33;
+}
+
+.hidden {
+    display: none;
+}
+
+/*.ourAmazingWorkMenuBlockImg{*/
+/*    display: block;*/
+/*}*/
 
 .our-amazing-work-img-hover{
     position: absolute;
