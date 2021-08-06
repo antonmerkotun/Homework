@@ -302,7 +302,7 @@ header > div {
     margin-top: 90px;
     height: 476px;
     text-align: center;
-    background-image: url("../img/header-nav/background-center.png");
+    background-image: url("../img/sections-background/section-2.png");
 }
 
 .purchase-now > h3 {
@@ -378,7 +378,6 @@ header > div {
 .our-amazing-work-img {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
     text-align: center;
     line-height: 0;
     width: 1140px;
@@ -422,7 +421,6 @@ header > div {
 
 .our-amazing-work-img-block {
     position: relative;
-    /*display: none;*/
 }
 
 .active {
@@ -491,7 +489,6 @@ header > div {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 14px;
-    /*line-height: 25px;*/
     color: #18CFAB;
 }
 
@@ -514,7 +511,11 @@ header > div {
 }
 
 .section-break-block {
+    margin: 0 auto;
     position: relative;
+    height: 270px;
+    width: 263px;
+    align-items: center;
 }
 
 .section-break-block > p {
@@ -564,7 +565,7 @@ header > div {
     position: absolute;
     height: 14px;
     border-left: 1px solid #777777;
-    right: 180px;
+    right: 158px;
 }
 
 .section-break-block:hover p {
@@ -578,9 +579,10 @@ header > div {
 /*what-people-say*/
 
 .what-people-say {
-    background-image: url("../img/what-people-say/what-people-say-background.png");
+    background-image: url("../img/sections-background/section-3.jpg");
     height: 853px;
     margin-top: 100px;
+    background-size: cover;
 }
 
 .what-people-say > div > p {
@@ -592,7 +594,7 @@ header > div {
     text-align: center;
 }
 
-.what-people-say-info > div > p {
+.what-people-say-info > div > div > p {
     margin-top: 36px;
     font-weight: 300;
     font-size: 16px;
@@ -670,6 +672,13 @@ header > div {
     right: 0;
 }
 
+.arrow-class:hover {
+    background-color: #18CFAB;
+    border-color: #18CFAB;
+    cursor: pointer;
+}
+
+
 .arrow-left::after {
     content: "";
     height: 10px;
@@ -678,8 +687,8 @@ header > div {
     border-bottom: 2px solid #777777;
     position: absolute;
     transform: rotate(45deg);
-    bottom: 10px;
-    right: 5px;
+    bottom: 9px;
+    right: 6px;
 }
 
 .arrow-right::after {
@@ -690,8 +699,8 @@ header > div {
     border-bottom: 2px solid #777777;
     position: absolute;
     transform: rotate(-45deg);
-    bottom: 10px;
-    right: 13px;
+    bottom: 9px;
+    right: 12px;
 }
 
 .people-gallery-icon-active {
@@ -708,6 +717,9 @@ header > div {
     display: block;
 }
 
+.people-gallery-icon:hover {
+    cursor: pointer;
+}
 
 /*gallery-of-best-images*/
 
@@ -745,11 +757,3 @@ footer > p {
     opacity: 0.5;
     padding-top: calc(120px - 67px);
 }
-
-
-
-
-
-
-
-

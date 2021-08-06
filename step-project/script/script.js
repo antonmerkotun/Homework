@@ -7,7 +7,6 @@ tabsListOurServices.addEventListener('click', tabsOurServicesMenu);
 
 function tabsOurServicesMenu(element) {
     const data = element.target.dataset.type;
-    console.log(data)
     document.querySelector('.activeOurServicesText').classList.remove('activeOurServicesText');
     document.querySelector(`[data-block = ${data}]`).classList.add('activeOurServicesText');
     document.querySelector('.activeOurServicesTab').classList.remove('activeOurServicesTab');
@@ -46,6 +45,7 @@ const loadMore = document.querySelector('#morePhoto')
 loadMore.addEventListener('click', funcLoadMore)
 
 function funcLoadMore() {
+    loadMore.style.display = 'none'
     imageBlock.forEach(e => {
         e.removeAttribute('data-load')
     });
@@ -67,56 +67,53 @@ function funcLoadMore() {
 
 // What People Say - Slider
 
-const arrowLeft = document.querySelector('.arrow-left');
-const arrowRight = document.querySelector('.arrow-right');
-const icon = Array.from(document.querySelectorAll('.people-gallery-icon'))
+let currentSlide = 0;
+const navigation = document.querySelectorAll('.people-gallery-icon');
+const slides = document.querySelectorAll('.what-people-say-text');
+const next = document.querySelector('.arrow-right')
+const previous = document.querySelector('.arrow-left')
 
-arrowLeft.addEventListener('click', buttonClickLeft)
-arrowRight.addEventListener('click', buttonClickRight)
-
-
-
-let i = 0;
-function buttonClickRight () {
-    icon[i].classList.remove('people-gallery-icon-active')
-    i++
-    if (i >= icon.length) {
-        i = 0
-    }
-    icon[i].classList.add('people-gallery-icon-active')
-}
-
-function buttonClickLeft(){
-    icon[i].classList.remove('people-gallery-icon-active')
-    i--
-    if (i === -1){
-        i = 3
-    }
-    icon[i].classList.add('people-gallery-icon-active')
-}
-
-const blockIcon = document.querySelector('.people-gallery-slider');
-
-blockIcon.addEventListener('click', clickIcon)
-
-function clickIcon(element) {
-
-
-
-    document.querySelector('.people-gallery-icon-active').classList.remove('people-gallery-icon-active');
-    element.target.classList.add('people-gallery-icon-active');
-    if (element.target === document.querySelector('.people-gallery-slider')){
-    //
-    //
-    //
+for (let i = 0; i < navigation.length; i++) {
+    navigation[i].onclick = function () {
+        currentSlide = i;
+        document.querySelector('.what-people-say-text.what-people-say-text-active').classList.remove('what-people-say-text-active');
+        document.querySelector('.people-gallery-icon.people-gallery-icon-active').classList.remove('people-gallery-icon-active');
+        navigation[currentSlide].classList.add('people-gallery-icon-active');
+        slides[currentSlide].classList.add('what-people-say-text-active');
     }
 }
 
+next.onclick = function () {
+    nextSlide(currentSlide);
+};
 
+previous.onclick = function () {
+    previousSlide(currentSlide);
+};
 
+function nextSlide() {
+    goToSlide(currentSlide + 1);
+}
 
+function previousSlide() {
+    goToSlide(currentSlide - 1);
+}
 
+function goToSlide(n) {
+    hideSlides();
+    currentSlide = (n + slides.length) % slides.length;
+    showSlides();
+}
 
+function hideSlides() {
+    slides[currentSlide].className = 'what-people-say-text';
+    navigation[currentSlide].className = 'people-gallery-icon';
+}
+
+function showSlides() {
+    slides[currentSlide].className = 'what-people-say-text what-people-say-text-active';
+    navigation[currentSlide].className = 'people-gallery-icon people-gallery-icon-active';
+}
 
 
 
