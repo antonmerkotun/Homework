@@ -74,8 +74,10 @@ const next = document.querySelector('.arrow-right')
 const previous = document.querySelector('.arrow-left')
 
 for (let i = 0; i < navigation.length; i++) {
+
     navigation[i].onclick = function () {
         currentSlide = i;
+
         document.querySelector('.what-people-say-text.what-people-say-text-active').classList.remove('what-people-say-text-active');
         document.querySelector('.people-gallery-icon.people-gallery-icon-active').classList.remove('people-gallery-icon-active');
         navigation[currentSlide].classList.add('people-gallery-icon-active');

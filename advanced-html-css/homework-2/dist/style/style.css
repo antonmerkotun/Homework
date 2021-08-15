@@ -1,7 +1,0 @@
-head {
-  margin-bottom: 100px;
-  font-size: 100px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-}
