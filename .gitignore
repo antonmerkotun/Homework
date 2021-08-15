@@ -7,6 +7,7 @@
 out
 gen
 node_modules
-package-lock.json
+./advanced-html-css/homework-2/package-lock.json
+
 
 

@@ -10,6 +10,7 @@ const {src, dest, series, watch} = require('gulp'),
     // imagemin = require('gulp-imagemin'),
     autoprefixer = require('gulp-autoprefixer');
 
+
 function clear() {
     return src('./dist')
         .pipe(clean())
@@ -48,4 +49,4 @@ function serv() {
 }
 
 exports.build = series(clear, scss, concatJs)
-exports.dev = series(serv)
+exports.dev = series(clear, scss, concatJs, serv)
