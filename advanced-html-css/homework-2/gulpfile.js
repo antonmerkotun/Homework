@@ -28,7 +28,7 @@ function scss() {
 function concatJs() {
     return src('./src/js/**/*.js')
         .pipe(concat('scripts.min.js'))
-        // .pipe(gulpJsMinify())
+        .pipe(gulpJsMinify())
         .pipe(dest('./dist/script'))
 }
 
