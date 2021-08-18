@@ -6,12 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="dist/style/styles.min.css">
     <link rel="stylesheet" href="src/scss/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <header class="header container">
     <nav class="header__nav">
-        <span class="header__nav-burger-menu"></span>
-        <ul class="header__nav__list">
+        <div class="header__nav__burger-menu">
+            <span class="header__nav__burger-menu-strip"></span>
+            <span class="header__nav__burger-menu-strip"></span>
+            <span class="header__nav__burger-menu-strip"></span>
+        </div>
+        <ul class="header__nav__list header__nav__list-active">
             <li class="header__nav__list__menu">HOME</li>
             <li class="header__nav__list__menu">ABOUT US</li>
             <li class="header__nav__list__menu">OUR JOURNAL</li>
@@ -22,7 +29,9 @@
         </ul>
     </nav>
 </header>
-<!--    <img class="intro-image" src="./src/img/intro-img.png" alt="intro-image" width="1170" height="550">-->
-<script src="dist/script/scripts.min.js"></script>
+<section class="image-intro container">
+    <img class="intro-image" src="./dist/img/intro-img.png" alt="intro-image" width="1170" height="550">
+</section>
+<!--<script src="dist/script/scripts.min.js"></script>-->
 </body>
 </html>

@@ -7,7 +7,7 @@ const {src, dest, series, watch} = require('gulp'),
     cleanCss = require('gulp-clean-css'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
-    // imagemin = require('gulp-imagemin'),
+    imagemin = require('gulp-imagemin'),
     autoprefixer = require('gulp-autoprefixer');
 
 
@@ -32,11 +32,11 @@ function concatJs() {
         .pipe(dest('./dist/script'))
 }
 
-// function image() {
-//     return src('./src/img/*')
-//         .pipe(imagemin())
-//         .pipe(dest('./dist/img'))
-// }
+function image() {
+    return src('./src/img/**/*')
+        .pipe(imagemin())
+        .pipe(dest('./dist/img'))
+}
 
 function serv() {
     browserSync.init({
@@ -48,5 +48,5 @@ function serv() {
     watch('./src/js/**.js', series(concatJs)).on('change', browserSync.reload);
 }
 
-exports.build = series(clear, scss, concatJs)
-exports.dev = series(clear, scss, concatJs, serv)
+exports.build = series(clear, scss, concatJs, image)
+exports.dev = series(scss, concatJs, serv)

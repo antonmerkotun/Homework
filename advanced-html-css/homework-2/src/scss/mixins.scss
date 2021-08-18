@@ -1,0 +1,10 @@
+@mixin position-absolute {
+    content: '';
+    position: absolute;
+    display: block;
+  }
+
+@mixin strip-color-burger {
+  background-color: #FFFFFF;
+}
+
