@@ -2,6 +2,10 @@
 
 .header {
   position: relative;
+
+  &__nav {
+    height: 0;
+  }
 }
 
 .header__nav__burger-menu {
@@ -9,7 +13,7 @@
   position: absolute;
   height: 37px;
   width: 43px;
-  right: 0;
+  right: 15px;
   top: 23px;
   @media (min-width: 768px) {
     display: none;
@@ -21,22 +25,23 @@
 }
 
 .header__nav__list {
+  @include font-weight-normal;
   display: none;
   position: absolute;
   right: 0;
   top: 60px;
+  font-size: 11px;
+  line-height: 22px;
+  color: #4E4E4E;
 
   &-active {
     display: block;
     height: 208px;
     width: 182px;
     background-color: #F5F5F5;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 22px;
-    color: #4E4E4E;
     @media (min-width: 768px) {
       background-color: #FFFFFF;
+      height: 10px;
     }
   }
 
@@ -45,7 +50,6 @@
     position: relative;
     justify-content: space-between;
     width: 609px;
-    height: 22px;
     align-items: center;
     top: 41px;
     margin: 0 auto;
@@ -62,6 +66,3 @@
     }
   }
 }
-
-
-

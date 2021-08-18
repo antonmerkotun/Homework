@@ -4,15 +4,12 @@
   font-family: 'Roboto', sans-serif;
 }
 
-.container {
-  //max-width: 320px;
-  //padding: 0 15px 0 15px;
+.page {
+  padding-right: 15px;
+  padding-left: 15px;
 
+}
+
+.container {
   margin: 0 auto;
-  @media (min-width: 768px){
-    max-width: 609px;
-  }
-  @media (min-width: 1200px){
-    max-width: 813px;
-  }
 }

@@ -1,10 +1,7 @@
-@mixin position-absolute {
-    content: '';
-    position: absolute;
-    display: block;
-  }
-
-@mixin strip-color-burger {
-  background-color: #FFFFFF;
+@mixin font-weight-bold{
+  font-weight: 700;
 }
 
+@mixin font-weight-normal{
+  font-weight: 400;
+}
