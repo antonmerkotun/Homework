@@ -8,6 +8,7 @@ const {src, dest, series, watch} = require('gulp'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     imagemin = require('gulp-imagemin'),
+    uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer');
 
 
@@ -28,6 +29,7 @@ function scss() {
 function concatJs() {
     return src('./src/js/**/*.js')
         .pipe(concat('scripts.min.js'))
+        .pipe(uglify())
         .pipe(gulpJsMinify())
         .pipe(dest('./dist/script'))
 }
