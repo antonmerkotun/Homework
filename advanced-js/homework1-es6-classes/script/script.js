@@ -5,20 +5,20 @@ class Employee {
         this.salary = salary;
     }
 
-    set name(nameValue) {
-        this._name = nameValue;
+    set name(value) {
+        this._name = value;
     }
 	get	name(){
 		return this._name;
 	}
-	set age(ageValue){
-		this._age = ageValue;
+	set age(value){
+		this._age = value;
 	}
 	get age(){
 		return this._age;
 	}
-	set salary(salaryValue){
-		this._salary = salaryValue;
+	set salary(value){
+		this._salary = value;
 	}
 	get salary(){
 		return this._salary;
@@ -30,8 +30,8 @@ class Programmer extends Employee {
         super(name, age, salary);
         this.lang = lang;
     }
-	set salary(salaryValue){
-		this._salary = salaryValue;
+	set salary(value){
+		this._salary = value;
 	}
 	get	salary(){
 		return this._salary * 3;
