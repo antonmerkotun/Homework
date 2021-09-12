@@ -1,1 +1,1 @@
-# My homework in DanIt
+# My homework in DanIT
