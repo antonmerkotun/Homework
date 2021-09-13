@@ -37,6 +37,9 @@ divRoot.id = 'root';
 function create(array) {
     let booksArray = array.forEach((ele) => {
         try {
+            for (let ket in ele){
+
+            }
 
         } catch (err) {
 
