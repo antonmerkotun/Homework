@@ -29,3 +29,31 @@ const books = [
         name: "Дед Снегур и Морозочка",
     }
 ];
+
+let divRoot = document.createElement('div');
+document.body.append(divRoot);
+divRoot.id = 'root';
+
+function create(array) {
+    let booksArray = array.forEach((ele) => {
+        try {
+
+        } catch (err) {
+
+        }
+
+        let ul = document.createElement(`ul`);
+        divRoot.prepend(ul)
+        let liAuthor = document.createElement(`li`);
+        let liName = document.createElement(`li`);
+        let liPrice = document.createElement(`li`);
+        ul.append(liAuthor);
+        ul.append(liName);
+        ul.append(liPrice);
+        liAuthor.textContent = ele.author;
+        liName.textContent = ele.name;
+        liPrice.textContent = ele.price;
+    })
+}
+
+create(books)
