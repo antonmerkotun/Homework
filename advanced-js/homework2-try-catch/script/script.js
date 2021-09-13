@@ -30,20 +30,33 @@ const books = [
     }
 ];
 
+
+
+const author = books.find(function (author){
+    return author.author === undefined
+})
+
+const name = books.find(function (name){
+    return name.name === undefined
+})
+
+const price = books.find(function (price){
+    return price.price === undefined
+})
+
+console.log(`${author} в этом объекте нету параметра author`)
+console.log(name)
+console.log(price)
+
 let divRoot = document.createElement('div');
 document.body.append(divRoot);
 divRoot.id = 'root';
 
 function create(array) {
     let booksArray = array.forEach((ele) => {
-        try {
-            for (let ket in ele){
+        const {author, name, price} = ele;
 
-            }
 
-        } catch (err) {
-
-        }
 
         let ul = document.createElement(`ul`);
         divRoot.prepend(ul)
