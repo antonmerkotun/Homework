@@ -36,7 +36,7 @@ divRoot.id = 'root';
 
 function create(array) {
     let booksArray = array.forEach((ele) => {
-        const {author, price} = ele;
+        const {author, name, price} = ele;
 
         let ul = document.createElement(`ul`);
         divRoot.prepend(ul)
