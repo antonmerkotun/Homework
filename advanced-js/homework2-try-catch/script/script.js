@@ -30,33 +30,13 @@ const books = [
     }
 ];
 
-
-
-const author = books.find(function (author){
-    return author.author === undefined
-})
-
-const name = books.find(function (name){
-    return name.name === undefined
-})
-
-const price = books.find(function (price){
-    return price.price === undefined
-})
-
-console.log(`${author} в этом объекте нету параметра author`)
-console.log(name)
-console.log(price)
-
 let divRoot = document.createElement('div');
 document.body.append(divRoot);
 divRoot.id = 'root';
 
 function create(array) {
     let booksArray = array.forEach((ele) => {
-        const {author, name, price} = ele;
-
-
+        const {author, price} = ele;
 
         let ul = document.createElement(`ul`);
         divRoot.prepend(ul)
@@ -69,6 +49,17 @@ function create(array) {
         liAuthor.textContent = ele.author;
         liName.textContent = ele.name;
         liPrice.textContent = ele.price;
+
+        if (author === undefined) {
+            ele.author = 'не указан автор';
+            console.log(ele);
+            ul.remove(ele);
+        }
+        if (price === undefined) {
+            ele.price = 'не указана цена';
+            console.log(ele)
+            ul.remove(ele);
+        }
     })
 }
 
