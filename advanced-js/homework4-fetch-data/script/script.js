@@ -3,72 +3,99 @@
 const url = 'https://ajax.test-danit.com/api/swapi/films';
 
 class Films {
-	constructor(url) {
-		this.url = url;
-	}
+    constructor(url) {
+        this.url = url;
+    }
 
-	getFilms() {
-		axios
-			.get(this.url)
-			.then(function ({data}) {
-				data.forEach(el => {
-					let li = document.createElement('li');
-					li.textContent = el.name;
-					document.body.append(li);
-					const user = el.characters
+    getFilms() {
+        axios
+            .get(this.url)
+            .then(function ({data}) {
 
-					for (let key of user) {
+                data.forEach(el => {
+                    const ul = document.createElement('ul')
+                    const liFilm = document.createElement('li')
+                    const liEpisode = document.createElement('li')
+                    const liOpeningCrawl = document.createElement('li')
+                    document.body.append(ul)
+                    ul.append(liFilm)
+                    ul.append(liEpisode)
+                    ul.append(liOpeningCrawl)
+                    liFilm.textContent = el.name
+                    liEpisode.textContent = el.episodeId
+                    liOpeningCrawl.textContent = el.openingCrawl
 
-						axios
-							.get(key)
-							.then(function ({data}) {
-								console.log(data.name)
-								let li = document.createElement('li');
-								li.textContent = data.name;
-								document.body.append(li);
-							})
-					}
-				})
-				// data.forEach(function ({characters}) {
-				// console.log(characters)
-				// })
-				// for (let key in data) {
-				//     let li = document.createElement('li');
-				//     li.textContent = key.name;
-				//     document.body.append(li);
-				// console.log(data)
-
-				// }
-			})
-
-	}
-
-	// getCharacters(characters) {
-	//     return fetch('https://ajax.test-danit.com/api/swapi/films/characters')
-	//         .then(response => {
-	//             return response.json();
-	//         })
-	//         .then(character => {
-	//             console.log(character)
-	//         })
-	// }
-
+                })
+                // axios
+                //     .get(this.url)
+                //     .then(function ({data}) {
+                        const film1 = data[0].characters
+                        film1.forEach(ele => {
+                            axios
+                                .get(ele)
+                                .then(function ({data}) {
+                                    const text = document.createElement('li')
+                                    ul.append(text)
+                                    text.textContent = data.name
+                                    console.log(data.name)
+                                })
+                        })
+            })
+    }
 }
 
-// fetch(url)
-// 	.then(response => {
-// 		return response.json()
-// 	})
-// 	.then(array => {
-// 		return array.forEach(ele => {
-// 			let li = document.createElement('li')
-// 			li.textContent = ele.name
-// 			document.body.append(li)
-// 			// console.log(ele.characters)
-// 		})
-//
-// 	})
 
 const films = new Films(url)
 films.getFilms()
 // films.getCharacters()
+
+
+// class Films {
+//     constructor(url) {
+//         this.url = url;
+//     }
+//
+//     getFilms() {
+//         axios
+//             .get(this.url)
+//             .then(function ({data}) {
+//                 console.log(data[0])
+//                 data.forEach(el => {
+//                     const ul = document.createElement('ul')
+//                     const liFilm = document.createElement('li')
+//                     const liEpisode = document.createElement('li')
+//                     const liOpeningCrawl = document.createElement('li')
+//                     document.body.append(ul)
+//                     ul.append(liFilm)
+//                     ul.append(liEpisode)
+//                     ul.append(liOpeningCrawl)
+//                     liFilm.textContent = el.name
+//                     liEpisode.textContent = el.episodeId
+//                     liOpeningCrawl.textContent = el.openingCrawl
+//                     // console.log(el)
+//                 })
+//                 // axios
+//                 //     .get(data[0].characters)
+//                 //     .then(function ({name}){
+//                 //         console.log(name)
+//                 //     })
+//             })
+//         axios
+//             .get(this.url)
+//             .then(function ({data}) {
+//                 // console.log(data[0].characters)
+//                 const film1 = data[0].characters
+//                 film1.forEach(ele => {
+//                     // console.log(ele)
+//                     axios
+//                         .get(ele)
+//                         .then(function ({data}) {
+//                             // console.log(data)
+//                         })
+//                 })
+//
+//             })
+//     }
+//
+//
+// }
