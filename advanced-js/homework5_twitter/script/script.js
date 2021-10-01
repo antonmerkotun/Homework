@@ -34,28 +34,32 @@ class List {
 		this.title = title
 		this.body = body
 	}
-
+		createList() {
+		const root = document.querySelector('#root')
+			const form = document.createElement('form')
+			const body = document.createElement('p')
+			const title = document.createElement('p')
+			document.body.append(form)
+			form.append(body, title)
+			body.textContent = ele.body
+			title.textContent = ele.title
+			form.style.width = '500px'
+			form.style.paddingTop = '100px'
+			form.style.margin = '0 auto'
+		}
 }
 
 class Card {
 	constructor() {
 
 	}
-
 	form() {
-		// console.log(this.users)
-		// console.log(this.posts)
-		// const form = document.createElement('form')
-		// const body = document.createElement('p')
-		// const title = document.createElement('p')
-		// document.body.append(form)
-		// form.append(body, title)
-		// body.textContent = ele.body
-		// title.textContent = ele.title
-		// form.style.width = '500px'
-		// form.style.paddingTop = '100px'
-		// form.style.margin = '0 auto'
+
 	}
 }
 
 const app = new App(urlUsers, urlPosts);
+app.getListUsers();
+app.getListPosts();
+const list = new List()
+list.createList()
