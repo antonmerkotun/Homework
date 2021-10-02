@@ -2,7 +2,7 @@
 
 const urlUsers = "https://ajax.test-danit.com/api/json/users/"
 const urlPosts = "https://ajax.test-danit.com/api/json/posts/"
-const cardDelete = "https://ajax.test-danit.com/api/json/posts/${postId}"
+const cardDelete = `https://ajax.test-danit.com/api/json/posts/`
 
 class App {
     constructor(urlUsers, urlPosts, cardDelete) {
@@ -31,8 +31,8 @@ class App {
             })
     }
 
-    deleteCard() {
-        return fetch(this.cardDelete, {
+    deleteCard(postId) {
+        return fetch(this.cardDelete + postId, {
             method: "DELETE"
         })
             .then(response => response)
@@ -100,9 +100,8 @@ class List {
 }
 
 class Card {
-    constructor(app, list) {
+    constructor(app) {
         this.app = app
-        this.list = list
     }
 
     form() {
@@ -112,17 +111,19 @@ class Card {
                     .then(function (post) {
                         users.forEach(user => {
                             post.forEach(post => {
-                                if (user.id === post.id) {
+                                console.log(post)
+                                if (user.id === post.userId) {
                                     list.name = user.name
                                     list.email = user.email
                                     list.title = post.title
                                     list.body = post.body
                                     list.createList()
+                                    app.deleteCard(post.id)
                                 }
                             })
                         })
                     })
-            });
+            })
     }
 }
 
