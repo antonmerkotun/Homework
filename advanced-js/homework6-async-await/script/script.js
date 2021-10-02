@@ -3,6 +3,7 @@
 const urlIp = "https://api.ipify.org/?format=json"
 const urlApi = "http://ip-api.com/json/"
 const search = "?fields="
+const generatedNumeric = "66846719"
 
 const root = document.querySelector('#root')
 const div = document.createElement('div')
@@ -21,7 +22,7 @@ async function fetchIp() {
     const ip = data.ip
 
     async function fetchApi() {
-        const response = await fetch(`${urlApi}${ip}${search}continent,country,region,city,district`)
+        const response = await fetch(`${urlApi}${ip}${search}${generatedNumeric}`)
         const data = await response.json()
 
         const list = document.createElement('ul')
@@ -39,7 +40,7 @@ async function fetchIp() {
 
         const region = document.createElement('li')
         region.classList.add("list-group-item")
-        region.textContent = data.region
+        region.textContent = data.regionName
 
         const city = document.createElement('li')
         city.classList.add("list-group-item")
