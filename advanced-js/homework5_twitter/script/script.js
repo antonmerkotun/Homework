@@ -111,7 +111,6 @@ class Card {
                     .then(function (post) {
                         users.forEach(user => {
                             post.forEach(post => {
-                                console.log(post)
                                 if (user.id === post.userId) {
                                     list.name = user.name
                                     list.email = user.email
