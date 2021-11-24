@@ -22,5 +22,4 @@ const modalData = [
         </div>
     }
 ]
-
 export default modalData;
