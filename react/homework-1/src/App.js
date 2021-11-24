@@ -4,7 +4,6 @@ import Modal from "./components/Modal/Modal.jsx";
 import "./components/Button/Button.scss"
 import modalData from "./components/Modal/ModalData";
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -14,17 +13,27 @@ class App extends React.Component {
         this.modalData = modalData
     }
 
-    firstModal() {
+    firstModal = (e) => {
+        const modalID = e.target.dataset.modalId;
+        const modalDeclaration = this.modalData.find(item => item.id === +modalID);
+        this.header = modalDeclaration.header;
+        this.closeButton = modalDeclaration.closeButton;
+        this.text = modalDeclaration.text;
+        this.action = modalDeclaration.action;
         this.setState({
-            modalToShow: "Open first modal"
+            modalToShow: "Open modal"
         })
     }
 
-    secondModal() {
-        this.setState({
-            modalToShow: "Open second modal"
-        })
-
+    closeModal = (e) => {
+        const target = e.target.className
+        if (target === "modal" ||
+            target === "modal_header-button" ||
+            target === "modal_body-buttons-cancel") {
+            this.setState({
+                modalToShow: "none"
+            })
+        }
     }
 
     render() {
@@ -32,32 +41,25 @@ class App extends React.Component {
             <>
                 <div className={"buttons"}>
                     <Button
-                        id={1}
-                        backgroundColor={{background: "red"}}
+                        dataModalId={1}
+                        backgroundColor={{background: "#f8ec02"}}
                         text='Open first modal'
-                        onClick={this.firstModal.bind(this)}
+                        onClick={this.firstModal}
                     />
                     <Button
-                        id={2}
-                        backgroundColor={{background: "yellow"}}
+                        dataModalId={2}
+                        backgroundColor={{background: "#54f802"}}
                         text='Open second modal'
-                        onClick={this.secondModal.bind(this)}
+                        onClick={this.firstModal}
                     />
                 </div>
-                {this.state.modalToShow === "Open first modal" &&
+                {this.state.modalToShow === "Open modal" &&
                 <Modal
-                    header={this.modalData[0].header}
-                    closeButton={this.modalData[0].closeButton}
-                    text={this.modalData[0].text}
-                    action={this.modalData[0].action}
-                />
-                }
-                {this.state.modalToShow === "Open second modal" &&
-                <Modal
-                    header={this.modalData[1].header}
-                    closeButton={this.modalData[1].closeButton}
-                    text={this.modalData[1].text}
-                    action={this.modalData[1].action}
+                    onClick={this.closeModal}
+                    header={this.header}
+                    closeButton={this.closeButton}
+                    text={this.text}
+                    action={this.action}
                 />
                 }
             </>

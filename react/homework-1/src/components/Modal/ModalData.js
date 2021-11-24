@@ -7,9 +7,9 @@ const modalData = [
         closeButton: true,
         text: "Once you delete this file, it won't be possible to undo this action. Are you sure want to delete it?",
         action: <div className={"modal_body-buttons"}>
-                    <button>Ok</button>
-                    <button>Cancel</button>
-                </div>
+            <button className={"modal_body-buttons-save"}>Ok</button>
+            <button className={"modal_body-buttons-cancel"}>Cancel</button>
+        </div>
     },
     {
         id: 2,
@@ -17,10 +17,10 @@ const modalData = [
         closeButton: false,
         text: "Lorem ipsum dolor sit amet, consecteturadipisicing elit. A adipisci, aperiam blanditiisdolores maiores neque rem veritatis.",
         action: <div className={"modal_body-buttons"}>
-                    <button>Cancel</button>
-                    <button>Ok</button>
-                </div>
+            <button className={"modal_body-buttons-cancel"}>Cancel</button>
+            <button className={"modal_body-buttons-save"}>Ok</button>
+        </div>
     }
 ]
 
-export default modalData
+export default modalData;
