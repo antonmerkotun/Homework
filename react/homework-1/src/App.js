@@ -2,6 +2,7 @@ import React from "react";
 import Button from "./components/Button/Button.jsx";
 import Modal from "./components/Modal/Modal.jsx";
 import "./components/Button/Button.scss"
+import modalData from "./components/Modal/ModalData";
 
 
 class App extends React.Component {
@@ -10,6 +11,7 @@ class App extends React.Component {
         this.state = {
             modalToShow: "none"
         }
+        this.modalData = modalData
     }
 
     firstModal() {
@@ -22,6 +24,7 @@ class App extends React.Component {
         this.setState({
             modalToShow: "Open second modal"
         })
+
     }
 
     render() {
@@ -29,11 +32,13 @@ class App extends React.Component {
             <>
                 <div className={"buttons"}>
                     <Button
+                        id={1}
                         backgroundColor={{background: "red"}}
                         text='Open first modal'
                         onClick={this.firstModal.bind(this)}
                     />
                     <Button
+                        id={2}
                         backgroundColor={{background: "yellow"}}
                         text='Open second modal'
                         onClick={this.secondModal.bind(this)}
@@ -41,35 +46,18 @@ class App extends React.Component {
                 </div>
                 {this.state.modalToShow === "Open first modal" &&
                 <Modal
-                    header="Do you want to delete this file?"
-                    closeButton={true}
-                    text="Once you delete this file, it won't
-                     be possible to undo this action. Are you
-                      sure want to delete it?"
-                    action=
-                        {
-                            <div className={"modal_body-buttons"}>
-                                <button>Ok</button>
-                                <button>Cancel</button>
-                            </div>
-                        }
+                    header={this.modalData[0].header}
+                    closeButton={this.modalData[0].closeButton}
+                    text={this.modalData[0].text}
+                    action={this.modalData[0].action}
                 />
                 }
-
                 {this.state.modalToShow === "Open second modal" &&
                 <Modal
-                    header="Lorem ipsum dolor sit amet, consectetur"
-                    closeButton={false}
-                    text="Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit. A adipisci, aperiam blanditiis
-                     dolores maiores neque rem veritatis."
-                    action=
-                        {
-                            <div className={"modal_body-buttons"}>
-                                <button>Cancel</button>
-                                <button>Ok</button>
-                            </div>
-                        }
+                    header={this.modalData[1].header}
+                    closeButton={this.modalData[1].closeButton}
+                    text={this.modalData[1].text}
+                    action={this.modalData[1].action}
                 />
                 }
             </>
