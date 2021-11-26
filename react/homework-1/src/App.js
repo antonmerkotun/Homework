@@ -8,20 +8,23 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            modalToShow: "none"
+            modalToShow: "none",
+            header: '',
+            closeButton: '',
+            text: '',
+            action: '',
         }
-        this.modalData = modalData
     }
 
     firstModal = (e) => {
         const modalID = e.target.dataset.modalId;
-        const modalDeclaration = this.modalData.find(item => item.id === +modalID);
-        this.header = modalDeclaration.header;
-        this.closeButton = modalDeclaration.closeButton;
-        this.text = modalDeclaration.text;
-        this.action = modalDeclaration.action;
+        const modalDeclaration = modalData.find(item => item.id === +modalID);
         this.setState({
-            modalToShow: "Open modal"
+            modalToShow: "Open modal",
+            header: modalDeclaration.header,
+            closeButton: modalDeclaration.closeButton,
+            text: modalDeclaration.text,
+            action: modalDeclaration.action,
         })
     }
 
@@ -56,10 +59,10 @@ class App extends React.Component {
                 {this.state.modalToShow === "Open modal" &&
                 <Modal
                     onClick={this.closeModal}
-                    header={this.header}
-                    closeButton={this.closeButton}
-                    text={this.text}
-                    action={this.action}
+                    header={this.state.header}
+                    closeButton={this.state.closeButton}
+                    text={this.state.text}
+                    action={this.state.action}
                 />
                 }
             </>
