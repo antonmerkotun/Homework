@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "productName": "Apple iPhone 1 128GB",
+        "productName": "Apple iPhone 1",
         "price": "100",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/a/b/abecb464d7f2cb59f7eb795cff0a96ae.jpg",
         "article": "11111",
@@ -9,7 +9,7 @@
     },
     {
         "id": 2,
-        "productName": "Apple iPhone 2 128GB",
+        "productName": "Apple iPhone 2",
         "price": "200",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/d/2/d2553f47f5a7f38f2c54f86e362c54df.jpg",
         "article": "22222",
@@ -17,7 +17,7 @@
     },
     {
         "id": 3,
-        "productName": "Apple iPhone 3 128GB",
+        "productName": "Apple iPhone 3",
         "price": "300",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/6/0/60edd7be05c70219e9ae51931036df2c.jpg",
         "article": "33333",
@@ -25,7 +25,7 @@
     },
     {
         "id": 4,
-        "productName": "Apple iPhone 4 128GB",
+        "productName": "Apple iPhone 4",
         "price": "400",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/a/5/a5cdbe8091a783bd060df2c1f6ab8d0d.jpg",
         "article": "44444",
@@ -33,7 +33,7 @@
     },
     {
         "id": 5,
-        "productName": "Apple iPhone 5 128GB",
+        "productName": "Apple iPhone 5",
         "price": "500",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/a/b/ab0c89f53f722f35b033dbb1f4cc3974.jpg",
         "article": "55555",
@@ -41,7 +41,7 @@
     },
     {
         "id": 6,
-        "productName": "Apple iPhone 6 128GB",
+        "productName": "Apple iPhone 6",
         "price": "600",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/3/0/3059bc034e41c76401f3a6b47ab5b504.jpg",
         "article": "66666",
@@ -49,7 +49,7 @@
     },
     {
         "id": 7,
-        "productName": "Apple iPhone 7 128GB",
+        "productName": "Apple iPhone 7",
         "price": "700",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/3/4/34e74cce5b2f4727468f721d009f03be.jpg",
         "article": "77777",
@@ -57,7 +57,7 @@
     },
     {
         "id": 8,
-        "productName": "Apple iPhone 8 128GB",
+        "productName": "Apple iPhone 8",
         "price": "800",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/6/0/60edd7be05c70219e9ae51931036df2c.jpg",
         "article": "88888",
@@ -65,7 +65,7 @@
     },
     {
         "id": 9,
-        "productName": "Apple iPhone 9 128GB",
+        "productName": "Apple iPhone 9",
         "price": "900",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/d/2/d2553f47f5a7f38f2c54f86e362c54df.jpg",
         "article": "99999",
@@ -73,7 +73,7 @@
     },
     {
         "id": 10,
-        "productName": "Apple iPhone 10 128GB",
+        "productName": "Apple iPhone 10",
         "price": "1000",
         "src": "https://i.citrus.ua/imgcache/size_180/uploads/shop/a/b/abecb464d7f2cb59f7eb795cff0a96ae.jpg",
         "article": "00000",

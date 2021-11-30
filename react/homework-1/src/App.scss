@@ -1,0 +1,6 @@
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  width: 1400px;
+  margin: 20px auto 0;
+}
