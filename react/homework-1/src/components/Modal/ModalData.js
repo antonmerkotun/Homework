@@ -3,9 +3,9 @@ import React from "react";
 const modalData = [
     {
         id: 1,
-        header: "Do you want to delete this file?",
-        closeButton: true,
-        text: "Once you delete this file, it won't be possible to undo this action. Are you sure want to delete it?",
+        header: "Do you want to add shopping card ?",
+        closeButton: false,
+        text: "",
         action: <div className={"modal_body-buttons"}>
             <button className={"modal_body-buttons-save"}>Ok</button>
             <button className={"modal_body-buttons-cancel"}>Cancel</button>

@@ -35,6 +35,12 @@ class App extends React.Component {
                 modalToShow: "none"
             })
         }
+        if (target === "modal_body-buttons-save"){
+            console.log(e)
+            this.setState({
+                modalToShow: "none"
+            })
+        }
     }
 
     setStar = (e) => {
@@ -52,6 +58,10 @@ class App extends React.Component {
                     });
                 }
             )
+    }
+
+    addCard = (e) => {
+        console.log("good")
     }
 
     render() {
@@ -85,6 +95,7 @@ class App extends React.Component {
                         closeButton={this.state.modalObject.closeButton}
                         text={this.state.modalObject.text}
                         action={this.state.modalObject.action}
+                        addCard={this.addCard}
                     />
                 }
             </div>
