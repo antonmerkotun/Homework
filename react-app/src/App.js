@@ -60,7 +60,7 @@ class App extends React.Component {
             )
     }
 
-    addCard = (e) => {
+    addCard = () => {
         console.log("good")
     }
 
