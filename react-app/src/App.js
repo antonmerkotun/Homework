@@ -15,6 +15,7 @@ class App extends React.Component {
             modalObject: {},
             modalToShow: "none",
             arrayProduct: [],
+            basket: [],
         }
     }
 
@@ -36,14 +37,10 @@ class App extends React.Component {
                 modalToShow: "none"
             })
         }
-        if (target === "modal_body-buttons-save") {
-            this.setState({
-                modalToShow: "none",
-
-
-                // SAVE
-
-
+        if (target === "modal_body-buttons-save"){
+            console.log(e)
+            this.state.arrayProduct.map(ele => {
+                // console.log(ele)
             })
         }
     }
@@ -55,25 +52,15 @@ class App extends React.Component {
                     this.setState({
                         arrayProduct: result
                     });
-                // eslint-disable-next-line array-callback-return
-                    result.map(card => {
-                        // localStorage.setItem(card.id, card.icon)
-                    })
                 }
             )
     }
 
-    componentWillUnmount() {
-        fetch("productList.json").then(response => response.json())
-    }
-
-    setStar = (e) => {
+    setFavorite = (e) => {
         e.target.classList.toggle('icon-favorite-add')
         const className = e.target.className
-        // eslint-disable-next-line array-callback-return
         this.state.arrayProduct.map(ele => {
             if (+e.target.id === ele.id) {
-                console.log(ele)
                 localStorage.setItem(ele.id, className)
             }
         })
@@ -82,12 +69,13 @@ class App extends React.Component {
     render() {
         return (
             <div className="product-list">
+                <p>Корзина: {this.state.basket.length}</p>
                 {this.state.arrayProduct.map(e => (
                         <Card
                             icon={localStorage.getItem(e.id)}
                             id={e.id}
                             key={e.id}
-                            onClick={this.setStar}
+                            onClick={this.setFavorite}
                             article={e.article}
                             src={e.src}
                             productName={e.productName}
@@ -95,6 +83,7 @@ class App extends React.Component {
                             color={e.color}
                             button={
                                 <Button
+                                    id={e.id}
                                     dataModalId="1"
                                     className="button-modal"
                                     backgroundColor={{background: "#FFF"}}
@@ -118,7 +107,6 @@ class App extends React.Component {
         )
     }
 }
-
 
 
 export default App;
