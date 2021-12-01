@@ -7,6 +7,7 @@ import Modal from "./components/Modal/Modal";
 import "./App.scss"
 import "./components/Card/Card.scss"
 
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -35,33 +36,45 @@ class App extends React.Component {
                 modalToShow: "none"
             })
         }
-        if (target === "modal_body-buttons-save"){
-            console.log(e)
+        if (target === "modal_body-buttons-save") {
             this.setState({
-                modalToShow: "none"
+                modalToShow: "none",
+
+
+                // SAVE
+
+
             })
         }
-    }
-
-    setStar = (e) => {
-        e.target.classList.toggle('icon-color')
-        console.log(e.target.className)
     }
 
     componentDidMount() {
         fetch("productList.json")
             .then(response => response.json())
-            .then(
-                (result) => {
+            .then(result => {
                     this.setState({
                         arrayProduct: result
                     });
+                    result.map(card => {
+                        localStorage.setItem(card.id, card.icon)
+                    })
                 }
             )
     }
 
-    addCard = () => {
-        console.log("good")
+    componentWillUnmount() {
+
+    }
+
+    setStar = (e) => {
+        e.target.classList.toggle('color2')
+        const className = e.target.className
+        this.state.arrayProduct.map(ele => {
+            if (+e.target.id === ele.id) {
+                console.log(ele)
+                localStorage.setItem(ele.id, className)
+            }
+        })
     }
 
     render() {
@@ -69,7 +82,9 @@ class App extends React.Component {
             <div className="product-list">
                 {this.state.arrayProduct.map(e => (
                         <Card
+                            id={e.id}
                             key={e.id}
+                            icon={localStorage.getItem(e.id)}
                             onClick={this.setStar}
                             article={e.article}
                             src={e.src}
@@ -95,7 +110,6 @@ class App extends React.Component {
                         closeButton={this.state.modalObject.closeButton}
                         text={this.state.modalObject.text}
                         action={this.state.modalObject.action}
-                        addCard={this.addCard}
                     />
                 }
             </div>
