@@ -55,20 +55,22 @@ class App extends React.Component {
                     this.setState({
                         arrayProduct: result
                     });
+                // eslint-disable-next-line array-callback-return
                     result.map(card => {
-                        localStorage.setItem(card.id, card.icon)
+                        // localStorage.setItem(card.id, card.icon)
                     })
                 }
             )
     }
 
     componentWillUnmount() {
-
+        fetch("productList.json").then(response => response.json())
     }
 
     setStar = (e) => {
-        e.target.classList.toggle('color2')
+        e.target.classList.toggle('icon-favorite-add')
         const className = e.target.className
+        // eslint-disable-next-line array-callback-return
         this.state.arrayProduct.map(ele => {
             if (+e.target.id === ele.id) {
                 console.log(ele)
@@ -82,9 +84,9 @@ class App extends React.Component {
             <div className="product-list">
                 {this.state.arrayProduct.map(e => (
                         <Card
+                            icon={localStorage.getItem(e.id)}
                             id={e.id}
                             key={e.id}
-                            icon={localStorage.getItem(e.id)}
                             onClick={this.setStar}
                             article={e.article}
                             src={e.src}
@@ -116,5 +118,7 @@ class App extends React.Component {
         )
     }
 }
+
+
 
 export default App;

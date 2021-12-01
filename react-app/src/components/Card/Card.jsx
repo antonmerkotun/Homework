@@ -6,7 +6,7 @@ class Card extends React.Component {
         return (
             <div className={"card"}>
                 <div className={"card_icon-article"}>
-                    <button id={this.props.id} className={this.props.icon} onClick={this.props.onClick}/>
+                    <button id={this.props.id} className={`icon-favorite ${this.props.icon}`} onClick={this.props.onClick}/>
                     <span className={"card-article"}>article: {this.props.article}</span>
                 </div>
                 <img className={"card-image"} src={this.props.src} alt={"img"}/>
@@ -19,6 +19,10 @@ class Card extends React.Component {
             </div>
         )
     }
+}
+
+Card.defaultProps = {
+    icon: 'icon-favorite'
 }
 
 export default Card
