@@ -29,7 +29,6 @@ class App extends React.Component {
                     });
                 }
             )
-
     }
 
     openModal = (e) => {
@@ -103,7 +102,6 @@ class App extends React.Component {
                                     />
                                 }
                             />
-
                         )
                     )}
                     {this.state.modalToShow === "Open modal" &&
