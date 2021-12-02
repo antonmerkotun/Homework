@@ -38,7 +38,7 @@ class App extends React.Component {
             modalObject: {...modalDeclaration},
             modalToShow: "Open modal",
         })
-        this.state.arrayProduct.map(ele => {
+        this.state.arrayProduct.forEach(ele => {
             if (ele.id === +e.target.id) {
                 this.setState({
                     basket: ele
@@ -68,7 +68,7 @@ class App extends React.Component {
     setFavorite = (e) => {
         e.target.classList.toggle('icon-favorite-add')
         const className = e.target.className
-        this.state.arrayProduct.map(ele => {
+        this.state.arrayProduct.forEach(ele => {
             if (+e.target.id === ele.id) {
                 localStorage.setItem(ele.id, className)
             }
@@ -106,7 +106,6 @@ class App extends React.Component {
                     )}
                     {this.state.modalToShow === "Open modal" &&
                         <Modal
-
                             onClick={this.closeModal}
                             header={this.state.modalObject.header}
                             closeButton={this.state.modalObject.closeButton}
@@ -119,6 +118,5 @@ class App extends React.Component {
         )
     }
 }
-
 
 export default App;

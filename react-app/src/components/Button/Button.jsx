@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class Button extends React.Component {
     render() {
@@ -14,6 +15,13 @@ class Button extends React.Component {
             </button>
         )
     }
+}
+
+Button.protoType = {
+    id: PropTypes.number,
+    dataModalId: PropTypes.string,
+    className: PropTypes.string,
+    backgroundColor: PropTypes.string,
 }
 
 export default Button;

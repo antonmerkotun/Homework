@@ -1,5 +1,7 @@
 import React from "react";
 import "./Card.scss"
+import PropTypes from "prop-types";
+
 
 class Card extends React.Component {
     render() {
@@ -20,6 +22,17 @@ class Card extends React.Component {
             </div>
         )
     }
+}
+
+
+Card.protoType = {
+    id: PropTypes.number,
+    icon: PropTypes.string,
+    article: PropTypes.string,
+    src: PropTypes.string,
+    productName: PropTypes.string,
+    price: PropTypes.string,
+    color: PropTypes.string,
 }
 
 export default Card

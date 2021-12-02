@@ -1,6 +1,6 @@
 import React from "react";
 import './Modal.scss';
-
+import PropTypes from "prop-types";
 
 class Modal extends React.Component {
     render() {
@@ -24,6 +24,11 @@ class Modal extends React.Component {
             </div>
         )
     }
+}
+
+Modal.propType = {
+    header: PropTypes.string,
+    text: PropTypes.string,
 }
 
 export default Modal;
