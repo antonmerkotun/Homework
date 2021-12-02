@@ -8,6 +8,7 @@ import "./App.scss"
 import "./components/Card/Card.scss"
 
 const basketIcon = []
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -17,6 +18,18 @@ class App extends React.Component {
             arrayProduct: [],
             basket: '',
         }
+    }
+
+    componentDidMount() {
+        fetch("productList.json")
+            .then(response => response.json())
+            .then(result => {
+                    this.setState({
+                        arrayProduct: result
+                    });
+                }
+            )
+
     }
 
     openModal = (e) => {
@@ -46,23 +59,11 @@ class App extends React.Component {
         }
         if (target === "modal_body-buttons-save") {
             basketIcon.push(this.state.basket)
-            localStorage.setItem("basketIcon", basketIcon.length)
             this.setState({
                 modalToShow: "none"
             })
+            localStorage.setItem("basketIcon", basketIcon.length)
         }
-    }
-
-    componentDidMount() {
-        fetch("productList.json")
-            .then(response => response.json())
-            .then(result => {
-                    this.setState({
-                        arrayProduct: result
-                    });
-                }
-            )
-
     }
 
     setFavorite = (e) => {
@@ -78,7 +79,7 @@ class App extends React.Component {
     render() {
         return (
             <>
-                <p>Корзина: {localStorage.getItem('basketIcon')}</p>
+                <p>Товаров в корзине: {localStorage.getItem('basketIcon')}</p>
                 <div className="product-list">
                     {this.state.arrayProduct.map(e => (
                             <Card
