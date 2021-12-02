@@ -9,12 +9,6 @@ const modalData = [
         text: "",
         action: <ButtonModal/>
     },
-    {
-        id: 2,
-        header: "Lorem ipsum dolor sit amet, consectetur",
-        closeButton: false,
-        text: "Lorem ipsum dolor sit amet",
-        action: <ButtonModal/>
-    }
+
 ]
 export default modalData;

@@ -7,7 +7,7 @@ import Modal from "./components/Modal/Modal";
 import "./App.scss"
 import "./components/Card/Card.scss"
 
-
+const basketIcon = []
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +15,7 @@ class App extends React.Component {
             modalObject: {},
             modalToShow: "none",
             arrayProduct: [],
-            basket: [],
+            basket: '',
         }
     }
 
@@ -25,6 +25,13 @@ class App extends React.Component {
         this.setState({
             modalObject: {...modalDeclaration},
             modalToShow: "Open modal",
+        })
+        this.state.arrayProduct.map(ele => {
+            if (ele.id === +e.target.id) {
+                this.setState({
+                    basket: ele
+                })
+            }
         })
     }
 
@@ -37,10 +44,11 @@ class App extends React.Component {
                 modalToShow: "none"
             })
         }
-        if (target === "modal_body-buttons-save"){
-            console.log(e)
-            this.state.arrayProduct.map(ele => {
-                // console.log(ele)
+        if (target === "modal_body-buttons-save") {
+            basketIcon.push(this.state.basket)
+            localStorage.setItem("basketIcon", basketIcon.length)
+            this.setState({
+                modalToShow: "none"
             })
         }
     }
@@ -54,6 +62,7 @@ class App extends React.Component {
                     });
                 }
             )
+
     }
 
     setFavorite = (e) => {
@@ -68,42 +77,46 @@ class App extends React.Component {
 
     render() {
         return (
-            <div className="product-list">
-                <p>Корзина: {this.state.basket.length}</p>
-                {this.state.arrayProduct.map(e => (
-                        <Card
-                            icon={localStorage.getItem(e.id)}
-                            id={e.id}
-                            key={e.id}
-                            onClick={this.setFavorite}
-                            article={e.article}
-                            src={e.src}
-                            productName={e.productName}
-                            price={e.price}
-                            color={e.color}
-                            button={
-                                <Button
-                                    id={e.id}
-                                    dataModalId="1"
-                                    className="button-modal"
-                                    backgroundColor={{background: "#FFF"}}
-                                    onClick={this.openModal}
-                                    text="Add to card"
-                                />
-                            }
+            <>
+                <p>Корзина: {localStorage.getItem('basketIcon')}</p>
+                <div className="product-list">
+                    {this.state.arrayProduct.map(e => (
+                            <Card
+                                icon={localStorage.getItem(e.id)}
+                                id={e.id}
+                                key={e.id}
+                                onClick={this.setFavorite}
+                                article={e.article}
+                                src={e.src}
+                                productName={e.productName}
+                                price={e.price}
+                                color={e.color}
+                                button={
+                                    <Button
+                                        id={e.id}
+                                        dataModalId="1"
+                                        className="button-modal"
+                                        backgroundColor={{background: "#FFF"}}
+                                        onClick={this.openModal}
+                                        text="Add to card"
+                                    />
+                                }
+                            />
+
+                        )
+                    )}
+                    {this.state.modalToShow === "Open modal" &&
+                        <Modal
+
+                            onClick={this.closeModal}
+                            header={this.state.modalObject.header}
+                            closeButton={this.state.modalObject.closeButton}
+                            text={this.state.modalObject.text}
+                            action={this.state.modalObject.action}
                         />
-                    )
-                )}
-                {this.state.modalToShow === "Open modal" &&
-                    <Modal
-                        onClick={this.closeModal}
-                        header={this.state.modalObject.header}
-                        closeButton={this.state.modalObject.closeButton}
-                        text={this.state.modalObject.text}
-                        action={this.state.modalObject.action}
-                    />
-                }
-            </div>
+                    }
+                </div>
+            </>
         )
     }
 }
