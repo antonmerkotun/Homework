@@ -7,15 +7,15 @@ import Modal from "./components/Modal/Modal";
 import "./App.scss"
 import "./components/Card/Card.scss"
 
-const basketIcon = []
+let basketIcon = []
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            arrayProduct: [],
             modalObject: {},
             modalToShow: "none",
-            arrayProduct: [],
             basket: '',
         }
     }
@@ -29,6 +29,12 @@ class App extends React.Component {
                     });
                 }
             )
+        if (basketIcon.length === 0) {
+            basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
+        }
+        if (basketIcon === null) {
+            basketIcon = []
+        }
     }
 
     openModal = (e) => {
@@ -61,7 +67,7 @@ class App extends React.Component {
             this.setState({
                 modalToShow: "none"
             })
-            localStorage.setItem("basketIcon", basketIcon.length)
+            localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
         }
     }
 
@@ -75,15 +81,40 @@ class App extends React.Component {
         })
     }
 
+    // setFavorite = (event) => {
+    //     const el = event.target;
+    //     const id = el.id
+    //     if (id) {
+    //         let favorites = JSON.parse(localStorage.getItem("favorite")) || []
+    //         if (favorites.includes(id)) {
+    //             // delete
+    //             el.classList = 'icon-favorite'
+    //             favorites = favorites.filter(fId => fId !== id)
+    //         } else {
+    //             //add
+    //             el.classList = 'icon-favorite-add'
+    //             favorites.push(id)
+    //         }
+    //
+    //         localStorage.setItem("favorite", JSON.stringify(favorites))
+    //     }
+    // }
+
     render() {
         return (
             <>
-                <p>Товаров в корзине: {localStorage.getItem('basketIcon')}</p>
+                <div className={"header"}>
+                    <button className={"button-favorite"}>Favorite</button>
+                    <div>
+                    <button className={"basket"}/>
+                    <span className={"basket-number"}>{basketIcon.length}</span>
+                    </div>
+                </div>
                 <div className="product-list">
                     {this.state.arrayProduct.map(e => (
                             <Card
-                                icon={localStorage.getItem(e.id)}
                                 id={e.id}
+                                icon={localStorage.getItem(e.id)}
                                 key={e.id}
                                 onClick={this.setFavorite}
                                 article={e.article}
