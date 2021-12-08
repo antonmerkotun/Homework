@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./ProsuctCard.scss"
 import PropTypes from "prop-types";
 import Button from "../Button/Button.jsx";
@@ -8,6 +8,16 @@ import "../Button/Button.scss"
 
 let basketIcon = []
 
+
+const ProsuctCard2 = () => {
+    const [productList, setProductList] = useState([])
+    const [modalObject, setModalObject] = useState({})
+    const [modalToShow, setModalToShow] = useState('none')
+    const [basket, setBasket] = useState('')
+    const [favorite, setfavorite] = useState('')
+
+}
+
 class ProsuctCard extends React.Component {
     constructor(props) {
         super(props);
@@ -16,6 +26,7 @@ class ProsuctCard extends React.Component {
             modalObject: {},
             modalToShow: "none",
             basket: '',
+            favorite: ''
         }
     }
 
@@ -84,6 +95,13 @@ class ProsuctCard extends React.Component {
             }
             localStorage.setItem(el.id, el.className)
             localStorage.setItem("favorite", JSON.stringify(favorites))
+            this.setState({
+                favorite: favorites
+            })
+            // console.log(JSON.parse(localStorage.getItem('favorite')))
+            // JSON.parse(localStorage.getItem('favorite')).forEach(e => {
+            //     console.log(e)
+            // })
         }
     }
 
@@ -91,10 +109,13 @@ class ProsuctCard extends React.Component {
         return (
             <>
                 <div className={"header"}>
-                    <button className={"button-favorite"}>Favorite</button>
+                    <div>
+                        <button className={"favorite"}/>
+                        <span className={"icon-number"}>{JSON.parse(localStorage.getItem('favorite')).length}</span>
+                    </div>
                     <div>
                         <button className={"basket"}/>
-                        <span className={"basket-number"}>{basketIcon.length}</span>
+                        <span className={"icon-number"}>{basketIcon.length}</span>
                     </div>
                 </div>
                 <div className="product-list">

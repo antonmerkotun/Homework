@@ -3,14 +3,21 @@ import ProsuctCard from "./components/ProsuctCard/ProsuctCard.jsx";
 import "./App.scss"
 
 
-class App extends React.Component {
-    render() {
-        return (
-            <>
-                <ProsuctCard/>
-            </>
-        )
-    }
+const App = () => {
+  return(
+      <ProsuctCard/>
+  )
 }
+
+
+// class App extends React.Component {
+//     render() {
+//         return (
+//             <>
+//                 <ProsuctCard/>
+//             </>
+//         )
+//     }
+// }
 
 export default App;
