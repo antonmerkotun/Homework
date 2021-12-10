@@ -1,11 +1,11 @@
 import React from "react";
 import "./components/Button/Button.scss"
 import modalData from "./components/Modal/ModalData";
-import ProsuctCard from "./components/ProsuctCard/ProsuctCard.jsx";
+import ProductCard from "./components/ProductCard/ProductCard.jsx";
 import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import "./App.scss"
-import "./components/ProsuctCard/ProsuctCard.scss"
+import "./components/ProductCard/ProductCard.scss"
 
 let basketIcon = []
 
@@ -71,34 +71,39 @@ class App extends React.Component {
     }
   }
 
-  setFavorite = (e) => {
-    e.target.classList.toggle('icon-favorite-add')
-    const className = e.target.className
-    this.state.arrayProduct.forEach(ele => {
-      if (+e.target.id === ele.id) {
-        localStorage.setItem(ele.id, className)
-      }
-    })
-  }
-
-  // setFavorite = (event) => {
-  //     const el = event.target;
-  //     const id = el.id
-  //     if (id) {
-  //         let favorites = JSON.parse(localStorage.getItem("favorite")) || []
-  //         if (favorites.includes(id)) {
-  //             // delete
-  //             el.classList = 'icon-favorite'
-  //             favorites = favorites.filter(fId => fId !== id)
-  //         } else {
-  //             //add
-  //             el.classList = 'icon-favorite-add'
-  //             favorites.push(id)
-  //         }
-  //
-  //         localStorage.setItem("favorite", JSON.stringify(favorites))
+  // setFavorite = (e) => {
+  //   e.target.classList.toggle('icon-favorite-add')
+  //   const className = e.target.className
+  //   this.state.arrayProduct.forEach(ele => {
+  //     if (+e.target.id === ele.id) {
+  //       localStorage.setItem(ele.id, className)
   //     }
+  //   })
   // }
+
+  setFavorite = (event) => {
+    const el = event.target;
+    const id = el.id
+    if (id) {
+      let favorites = JSON.parse(localStorage.getItem("favorite")) || []
+      if (favorites.includes(id)) {
+        el.classList = 'icon-favorite'
+        favorites = favorites.filter(fId => fId !== id)
+      } else {
+        el.classList = 'icon-favorite-add'
+        favorites.push(id)
+      }
+      localStorage.setItem(el.id, el.className)
+      localStorage.setItem("favorite", JSON.stringify(favorites))
+      this.setState({
+        favorite: favorites
+      })
+      // console.log(JSON.parse(localStorage.getItem('favorite')))
+      // JSON.parse(localStorage.getItem('favorite')).forEach(e => {
+      //     console.log(e)
+      // })
+    }
+  }
 
   render() {
     return (
@@ -112,7 +117,7 @@ class App extends React.Component {
           </div>
           <div className="product-list">
             {this.state.arrayProduct.map(e => (
-                    <ProsuctCard
+                    <ProductCard
                         id={e.id}
                         icon={localStorage.getItem(e.id)}
                         key={e.id}

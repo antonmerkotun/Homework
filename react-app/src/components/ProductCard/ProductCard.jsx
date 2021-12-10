@@ -1,9 +1,9 @@
 import React from "react";
-import "./ProsuctCard.scss"
+import "./ProductCard.scss"
 import PropTypes from "prop-types";
 
 
-class ProsuctCard extends React.Component {
+class ProductCard extends React.Component {
     render() {
         return (
             <div className={"card"}>
@@ -25,7 +25,7 @@ class ProsuctCard extends React.Component {
 }
 
 
-ProsuctCard.protoType = {
+ProductCard.protoType = {
     id: PropTypes.number,
     icon: PropTypes.string,
     article: PropTypes.string,
@@ -35,4 +35,4 @@ ProsuctCard.protoType = {
     color: PropTypes.string,
 }
 
-export default ProsuctCard
+export default ProductCard
