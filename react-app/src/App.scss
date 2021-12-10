@@ -11,20 +11,9 @@ body {
   align-items: center;
 }
 
-.favorite {
-  position: relative;
-  background-size: cover;
-  border: none;
-  height: 70px;
-  width: 70px;
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQZWtJs0SzAFyLz_vw8JrARLjlkBrYkahdbcTD2FFoPz8Z7F5f8dX0VmNH4ZeLFuCS1ggU&usqp=CAU");
-
-  &:active {
-    height: 69px;
-    width: 69px;
-  }
+.button-favorite {
+  height: 40px;
 }
-
 
 .basket {
   position: relative;
@@ -33,16 +22,16 @@ body {
   height: 70px;
   width: 70px;
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT66zUyMEtk2GbDtlojNGA1CpjSVjNdQkgQvw&usqp=CAU");
-
   &:active {
     height: 69px;
     width: 69px;
   }
 }
 
-.icon-number {
+.basket-number {
   position: absolute;
   top: 30px;
+  right: 25px;
   background-color: #FFDD00FF;
   border-radius: 50px;
   padding: 2px;
