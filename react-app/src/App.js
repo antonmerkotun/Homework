@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "./components/Button/Button.scss"
 import modalData from "./components/Modal/ModalData";
 import ProductCard from "./components/ProductCard/ProductCard.jsx";
@@ -11,6 +11,10 @@ let basketIcon = []
 
 
 const App = () => {
+    const [arrayProduct, setArrayProduct] = useState([])
+    const [modalObject, setModalObject] = useState({})
+    const [modalToShow, setModalToShow] = useState("none")
+    const [basket, setBasket] = useState('')
 
     const componentDidMount = () => {
         fetch("productList.json")
