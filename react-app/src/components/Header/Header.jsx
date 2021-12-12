@@ -1,15 +1,26 @@
 import React from "react";
 import "./Header.scss"
-import {basketIcon} from "../../App";
+import {basketIcon} from "../ProductList/ProductList";
+import {Link} from "react-router-dom";
+
 
 const Header = () => {
     return (
         <div className={"header"}>
             <div>
-                <button className={"favorite"}/>
+                <Link to="/favorite">
+                    <button className={"favorite"}/>
+                </Link>
             </div>
             <div>
-                <button className={"basket"}/>
+                <Link to="/">
+                    <button className={"ProductList"}>Product list</button>
+                </Link>
+            </div>
+            <div>
+                <Link to="/basket">
+                    <button className={"basket"}/>
+                </Link>
                 <span className={"icon-number"}>{basketIcon.length}</span>
             </div>
         </div>
