@@ -14,6 +14,17 @@
   }
 }
 
+.star-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.card_icon-article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .icon-favorite {
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -37,3 +48,5 @@
   margin-left: 10px;
   background-image: url("https://s1.iconbird.com/ico/2014/1/617/w512h5121390853522christmasstar512.png");
 }
+
+

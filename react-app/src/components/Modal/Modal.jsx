@@ -3,6 +3,7 @@ import './Modal.scss';
 import PropTypes from "prop-types";
 
 const Modal = (props) => {
+
     return (
         <div onClick={props.onClick}>
             <div className={"modal"}>
