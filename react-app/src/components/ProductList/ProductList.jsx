@@ -8,6 +8,7 @@ export let basketIcon = []
 
 const ProductList = (props) => {
     const {product} = props
+    console.log(props)
 
     const [arrayProduct, setArrayProduct] = useState(product)
     const [modalObject, setModalObject] = useState({})

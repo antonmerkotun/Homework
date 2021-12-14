@@ -2,29 +2,31 @@ import React, {useEffect, useState} from "react";
 import "./ProductCard.scss"
 import PropTypes from "prop-types";
 
-export let favorite = []
+export let favoriteArr = []
 
 const ProductCard = (props) => {
     const {card} = props
     const [favorite, setFavorite] = useState('')
 
     useEffect(() => {
-        const favoriteHistory = JSON.parse(localStorage.getItem("favorite"))
-        if (favoriteHistory) {
-            favoriteHistory.forEach(e => {
-                if (+e === card.id) {
+        if (localStorage.getItem("favoriteArray")) {
+            favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
+        }
+        const historiFavorite = JSON.parse(localStorage.getItem("favoriteArray"))
+        if (historiFavorite) {
+            historiFavorite.forEach(e => {
+                if (e.id === card.id) {
                     setFavorite("icon-favorite-add")
                 }
             })
         }
-    })
+    }, [])
 
     const Favorites = (event) => {
         const el = event.target;
         const id = el.id
         if (id) {
             let favorites = JSON.parse(localStorage.getItem("favorite")) || []
-            console.log(favorites)
             if (favorites.includes(id)) {
                 el.classList = 'icon-favorite'
                 favorites = favorites.filter(fId => fId !== id)
@@ -33,8 +35,18 @@ const ProductCard = (props) => {
                 favorites.push(id)
             }
             localStorage.setItem("favorite", JSON.stringify(favorites))
-            // localStorage.setItem("favoriteArray" , JSON.stringify(card))
         }
+
+        if (el.className === 'icon-favorite-add') {
+            favoriteArr.push(card)
+        }
+        if (el.className === 'icon-favorite') {
+            favoriteArr.forEach(function (a, b) {
+                if (a.id === card.id) favoriteArr.splice(b, 1)
+            })
+        }
+        localStorage.setItem("favoriteArray", JSON.stringify(favoriteArr))
+
     }
 
     return (
