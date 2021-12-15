@@ -6,17 +6,15 @@ import Modal from "../Modal/Modal";
 
 export let basketIcon = []
 
-const ProductList = (props) => {
-    const {product} = props
-    console.log(props)
-
-    const [arrayProduct, setArrayProduct] = useState(product)
+const ProductList = ({product, type}) => {
+    const [arrayProduct, setArrayProduct] = useState([])
     const [modalObject, setModalObject] = useState({})
     const [modalToShow, setModalToShow] = useState("none")
     const [basket, setBasket] = useState('')
 
     useEffect(() => {
-        if (product.length === 0) {
+        if (type === 'json') {
+            console.log('json')
             fetch("productList.json")
                 .then(response => response.json())
                 .then(result => {
@@ -28,11 +26,11 @@ const ProductList = (props) => {
             if (basketIcon === null) {
                 basketIcon = []
             }
-        }
-        if (product => 1){
+        } else if (type === 'basket' || type === 'favorite') {
+            console.log('history')
             setArrayProduct(product)
         }
-    },[product])
+    }, [product])
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
@@ -54,9 +52,15 @@ const ProductList = (props) => {
             setModalToShow("none")
         }
         if (target === "modal_body-buttons-save") {
-            basketIcon.push(basket)
-            setModalToShow("none")
-            localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
+            if (type === "json") {
+                basketIcon.push(basket)
+                setModalToShow("none")
+                localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
+            }
+            if (type === "basket") {
+                console.log(basket)
+                console.log(basketIcon)
+            }
         }
     }
 
@@ -65,9 +69,10 @@ const ProductList = (props) => {
             <div className="product-list">
                 {arrayProduct.map(card => {
                         return <ProductCard
+                            type={type}
                             card={card}
                             key={card.id}
-                            button={
+                            buttonAdd={
                                 <Button
                                     id={card.id}
                                     dataModalId="1"
@@ -75,6 +80,16 @@ const ProductList = (props) => {
                                     backgroundColor={{background: "#FFF"}}
                                     onClick={openModal}
                                     text="Add to card"
+                                />
+                            }
+                            buttonDel={
+                                <Button
+                                    id={card.id}
+                                    dataModalId="2"
+                                    className="button-modal"
+                                    backgroundColor={{background: "#FFF"}}
+                                    onClick={openModal}
+                                    text="Delete card"
                                 />
                             }
                         />

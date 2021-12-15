@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export let favoriteArr = []
 
 const ProductCard = (props) => {
-    const {card} = props
+    const {card, type} = props
     const [favorite, setFavorite] = useState('')
 
     useEffect(() => {
@@ -50,7 +50,7 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div className={"card"}>
+        <div className={"card"} key={card.id}>
             <div className={"card_icon-article"}>
                 <button id={card.id}
                         className={`icon-favorite ${favorite}`}
@@ -63,7 +63,8 @@ const ProductCard = (props) => {
                 <p className={"card_body-price"}>Price: {card.price} $</p>
                 <p className={"card_body-color"}>Color: {card.color}</p>
             </div>
-            {props.button}
+            {type === 'json' && props.buttonAdd}
+            {type === 'basket' && props.buttonDel}
         </div>
     )
 }

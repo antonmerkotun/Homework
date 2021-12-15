@@ -9,6 +9,13 @@ const modalData = [
         text: "",
         action: <ButtonModal/>
     },
+    {
+        id: 2,
+        header: "Delete card?",
+        closeButton: false,
+        text: "",
+        action: <ButtonModal/>
+    },
 
 ]
 export default modalData;

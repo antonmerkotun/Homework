@@ -14,7 +14,7 @@ const Header = () => {
             </div>
             <div>
                 <Link to="/">
-                    <button className={"ProductList"}>Product list</button>
+                    <button className={"productList"}/>
                 </Link>
             </div>
             <div>

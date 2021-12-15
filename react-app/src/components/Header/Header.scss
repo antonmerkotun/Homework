@@ -19,6 +19,19 @@
   }
 }
 
+.productList {
+  position: relative;
+  background-size: cover;
+  border: none;
+  height: 70px;
+  width: 70px;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaFm-fVCS3hUsCZyFo_8e4fobOvwRN-w4PVWAriAmN6A7tYEGMjP6vX6lRuz5wxV9JBps&usqp=CAU");
+
+  &:active {
+    height: 69px;
+    width: 69px;
+  }
+}
 
 .basket {
   position: relative;
