@@ -13,8 +13,7 @@ const ProductList = ({product, type}) => {
     const [basket, setBasket] = useState('')
 
     useEffect(() => {
-        if (type === 'json') {
-            console.log('json')
+        if (type === 'product list') {
             fetch("productList.json")
                 .then(response => response.json())
                 .then(result => {
@@ -27,10 +26,9 @@ const ProductList = ({product, type}) => {
                 basketIcon = []
             }
         } else if (type === 'basket' || type === 'favorite') {
-            console.log('history')
             setArrayProduct(product)
         }
-    }, [product])
+    }, [type])
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
@@ -52,7 +50,7 @@ const ProductList = ({product, type}) => {
             setModalToShow("none")
         }
         if (target === "modal_body-buttons-save") {
-            if (type === "json") {
+            if (type === "product list") {
                 basketIcon.push(basket)
                 setModalToShow("none")
                 localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
@@ -66,6 +64,9 @@ const ProductList = ({product, type}) => {
 
     return (
         <>
+            <h1>{type}</h1>
+            {arrayProduct === null && <p>no card</p>}
+            {arrayProduct &&
             <div className="product-list">
                 {arrayProduct.map(card => {
                         return <ProductCard
@@ -92,6 +93,16 @@ const ProductList = ({product, type}) => {
                                     text="Delete card"
                                 />
                             }
+                            buttonFav={
+                                <Button
+                                    id={card.id}
+                                    dataModalId="2"
+                                    className="button-modal"
+                                    backgroundColor={{background: "#FFF"}}
+                                    onClick={openModal}
+                                    text=""
+                                />
+                            }
                         />
                     }
                 )}
@@ -104,7 +115,7 @@ const ProductList = ({product, type}) => {
                         action={modalObject.action}
                     />
                 }
-            </div>
+            </div>}
         </>
     )
 }

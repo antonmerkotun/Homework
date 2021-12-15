@@ -20,7 +20,7 @@ const ProductCard = (props) => {
                 }
             })
         }
-    }, [])
+    },)
 
     const Favorites = (event) => {
         const el = event.target;
@@ -46,7 +46,6 @@ const ProductCard = (props) => {
             })
         }
         localStorage.setItem("favoriteArray", JSON.stringify(favoriteArr))
-
     }
 
     return (
@@ -63,7 +62,8 @@ const ProductCard = (props) => {
                 <p className={"card_body-price"}>Price: {card.price} $</p>
                 <p className={"card_body-color"}>Color: {card.color}</p>
             </div>
-            {type === 'json' && props.buttonAdd}
+            {type === 'favorite' && props.buttonFav}
+            {type === 'product list' && props.buttonAdd}
             {type === 'basket' && props.buttonDel}
         </div>
     )
