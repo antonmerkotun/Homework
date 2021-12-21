@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.scss"
-import {basketIcon} from "../ProductList/ProductList";
 import {Link} from "react-router-dom";
 
 
@@ -21,7 +20,7 @@ const Header = () => {
                 <Link to="/basket">
                     <button className={"basket"}/>
                 </Link>
-                <span className={"icon-number"}>{basketIcon.length}</span>
+                <span className={"icon-number"}/>
             </div>
         </div>
     )

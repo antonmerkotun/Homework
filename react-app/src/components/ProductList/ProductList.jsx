@@ -1,19 +1,20 @@
 import React, {useEffect, useState} from "react";
 import modalData from "../Modal/ModalData";
-import ProductCard from "../ProductCard/ProductCard";
+import ProductCard, {favoriteArr} from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
+import {observer} from "mobx-react-lite";
 
 export let basketIcon = []
 
-const ProductList = ({product, type}) => {
+const ProductList = observer(({product, type}) => {
     const [arrayProduct, setArrayProduct] = useState([])
     const [modalObject, setModalObject] = useState({})
     const [modalToShow, setModalToShow] = useState("none")
     const [basket, setBasket] = useState('')
 
     useEffect(() => {
-        if (type === 'product list') {
+        if (type === 'product_list') {
             fetch("productList.json")
                 .then(response => response.json())
                 .then(result => {
@@ -28,7 +29,7 @@ const ProductList = ({product, type}) => {
         } else if (type === 'basket' || type === 'favorite') {
             setArrayProduct(product)
         }
-    }, [type])
+    })
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
@@ -50,14 +51,10 @@ const ProductList = ({product, type}) => {
             setModalToShow("none")
         }
         if (target === "modal_body-buttons-save") {
-            if (type === "product list") {
+            if (type === "product_list") {
                 basketIcon.push(basket)
                 setModalToShow("none")
                 localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
-            }
-            if (type === "basket") {
-                console.log(basket)
-                console.log(basketIcon)
             }
         }
     }
@@ -67,57 +64,37 @@ const ProductList = ({product, type}) => {
             <h1>{type}</h1>
             {arrayProduct === null && <p>no card</p>}
             {arrayProduct &&
-            <div className="product-list">
-                {arrayProduct.map(card => {
-                        return <ProductCard
-                            type={type}
-                            card={card}
-                            key={card.id}
-                            buttonAdd={
-                                <Button
-                                    id={card.id}
-                                    dataModalId="1"
-                                    className="button-modal"
-                                    backgroundColor={{background: "#FFF"}}
-                                    onClick={openModal}
-                                    text="Add to card"
-                                />
-                            }
-                            buttonDel={
-                                <Button
-                                    id={card.id}
-                                    dataModalId="2"
-                                    className="button-modal"
-                                    backgroundColor={{background: "#FFF"}}
-                                    onClick={openModal}
-                                    text="Delete card"
-                                />
-                            }
-                            buttonFav={
-                                <Button
-                                    id={card.id}
-                                    dataModalId="2"
-                                    className="button-modal"
-                                    backgroundColor={{background: "#FFF"}}
-                                    onClick={openModal}
-                                    text=""
-                                />
-                            }
+                <div className="product-list">
+                    {arrayProduct.map(card => {
+                            return <ProductCard
+                                type={type}
+                                card={card}
+                                key={card.id}
+                                button={type === "favorite" ||
+                                    <Button
+                                        id={card.id}
+                                        dataModalId={type === "product_list" && "1" || type === "basket" && "2"}
+                                        className="button-modal"
+                                        backgroundColor={{background: "#FFF"}}
+                                        onClick={openModal}
+                                        text={type === "product_list" && "Add to card" || type === "basket" && "Delete"}
+                                    />
+                                }
+                            />
+                        }
+                    )}
+                    {modalToShow === "Open modal" &&
+                        <Modal
+                            onClick={closeModal}
+                            header={modalObject.header}
+                            closeButton={modalObject.closeButton}
+                            text={modalObject.text}
+                            action={modalObject.action}
                         />
                     }
-                )}
-                {modalToShow === "Open modal" &&
-                    <Modal
-                        onClick={closeModal}
-                        header={modalObject.header}
-                        closeButton={modalObject.closeButton}
-                        text={modalObject.text}
-                        action={modalObject.action}
-                    />
-                }
-            </div>}
+                </div>}
         </>
     )
-}
+})
 
 export default ProductList

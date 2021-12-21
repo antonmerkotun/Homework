@@ -5,22 +5,22 @@ import PropTypes from "prop-types";
 export let favoriteArr = []
 
 const ProductCard = (props) => {
-    const {card, type} = props
+    const {card} = props
     const [favorite, setFavorite] = useState('')
 
     useEffect(() => {
         if (localStorage.getItem("favoriteArray")) {
             favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
         }
-        const historiFavorite = JSON.parse(localStorage.getItem("favoriteArray"))
-        if (historiFavorite) {
-            historiFavorite.forEach(e => {
+        const historyFavorite = JSON.parse(localStorage.getItem("favoriteArray"))
+        if (historyFavorite) {
+            historyFavorite.forEach(e => {
                 if (e.id === card.id) {
                     setFavorite("icon-favorite-add")
                 }
             })
         }
-    },)
+    })
 
     const Favorites = (event) => {
         const el = event.target;
@@ -49,23 +49,24 @@ const ProductCard = (props) => {
     }
 
     return (
-        <div className={"card"} key={card.id}>
-            <div className={"card_icon-article"}>
-                <button id={card.id}
-                        className={`icon-favorite ${favorite}`}
-                        onClick={Favorites}/>
-                <span className={"card-article"}>article: {card.article}</span>
+        <>
+            <div className={"card"} key={card.id}>
+                <div className={"card_icon-article"}>
+                    <button id={card.id}
+                            className={`icon-favorite ${favorite}`}
+                            onClick={Favorites}/>
+                    <span className={"card-article"}>article: {card.article}</span>
+                </div>
+                <img className={"card-image"} src={card.src} alt={"img"}/>
+                <div className={"card_body"}>
+                    <h4 className={"card_body-name"}>{card.productName}</h4>
+                    <p className={"card_body-price"}>Price: {card.price} $</p>
+                    <p className={"card_body-color"}>Color: {card.color}</p>
+                </div>
+                {props.button}
             </div>
-            <img className={"card-image"} src={card.src} alt={"img"}/>
-            <div className={"card_body"}>
-                <h4 className={"card_body-name"}>{card.productName}</h4>
-                <p className={"card_body-price"}>Price: {card.price} $</p>
-                <p className={"card_body-color"}>Color: {card.color}</p>
-            </div>
-            {type === 'favorite' && props.buttonFav}
-            {type === 'product list' && props.buttonAdd}
-            {type === 'basket' && props.buttonDel}
-        </div>
+
+        </>
     )
 }
 
