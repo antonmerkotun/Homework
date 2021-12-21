@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import modalData from "../Modal/ModalData";
-import ProductCard, {favoriteArr} from "../ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import {observer} from "mobx-react-lite";
