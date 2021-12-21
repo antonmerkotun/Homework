@@ -1,17 +1,22 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import modalData from "../Modal/ModalData";
 import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import {observer} from "mobx-react-lite";
+import ArrayBasket from "../../Context";
+import Header from "../Header/Header";
 
-export let basketIcon = []
+
+// export let basketIcon = []
 
 const ProductList = observer(({product, type}) => {
     const [arrayProduct, setArrayProduct] = useState([])
     const [modalObject, setModalObject] = useState({})
     const [modalToShow, setModalToShow] = useState("none")
-    const [basket, setBasket] = useState('')
+    const [basket, setBasket] = useState({})
+
+    const arrayBasket = useContext(ArrayBasket)
 
     useEffect(() => {
         if (type === 'product_list') {
@@ -20,16 +25,17 @@ const ProductList = observer(({product, type}) => {
                 .then(result => {
                     setArrayProduct(result)
                 })
-            if (basketIcon.length === 0) {
-                basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
-            }
-            if (basketIcon === null) {
-                basketIcon = []
-            }
-        } else if (type === 'basket' || type === 'favorite') {
-            setArrayProduct(product)
+        //     if (basketIcon.length === 0) {
+        //         basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
+        //     }
+        //     if (basketIcon === null) {
+        //         basketIcon = []
+        //     }
+        // }
+        // if (type === 'basket' || type === 'favorite') {
+        //     setArrayProduct(product)
         }
-    })
+    }, [product, type])
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
@@ -44,23 +50,26 @@ const ProductList = observer(({product, type}) => {
     }
 
     const closeModal = (e) => {
-        const target = e.target.className
-        if (target === "modal" ||
-            target === "modal_header-button" ||
-            target === "modal_body-buttons-cancel") {
-            setModalToShow("none")
-        }
-        if (target === "modal_body-buttons-save") {
-            if (type === "product_list") {
-                basketIcon.push(basket)
+        arrayBasket.push(basket)
+        console.log(arrayBasket)
+        // const target = e.target.className
+        // if (target === "modal" ||
+        //     target === "modal_header-button" ||
+        //     target === "modal_body-buttons-cancel") {
+        //     setModalToShow("none")
+        // }
+        // if (target === "modal_body-buttons-save") {
+        //     if (type === "product_list") {
+        //         basketIcon.push(basket)
                 setModalToShow("none")
-                localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
-            }
-        }
+        //         localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
+        //     }
+        // }
     }
 
     return (
         <>
+            <Header/>
             <h1>{type}</h1>
             {arrayProduct === null && <p>no card</p>}
             {arrayProduct &&
@@ -73,11 +82,11 @@ const ProductList = observer(({product, type}) => {
                                 button={type === "favorite" ||
                                     <Button
                                         id={card.id}
-                                        dataModalId={type === "product_list" && "1" || type === "basket" && "2"}
+                                        dataModalId={"1"}
                                         className="button-modal"
                                         backgroundColor={{background: "#FFF"}}
                                         onClick={openModal}
-                                        text={type === "product_list" && "Add to card" || type === "basket" && "Delete"}
+                                        text={"Add to card"}
                                     />
                                 }
                             />

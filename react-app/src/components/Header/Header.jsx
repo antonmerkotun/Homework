@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import "./Header.scss"
 import {Link} from "react-router-dom";
-
+import ArrayBasket from "../../Context";
 
 const Header = () => {
+    const arrayBasket = useContext(ArrayBasket)
     return (
         <div className={"header"}>
             <div>
@@ -20,7 +21,7 @@ const Header = () => {
                 <Link to="/basket">
                     <button className={"basket"}/>
                 </Link>
-                <span className={"icon-number"}/>
+                <span className={"icon-number"}>{arrayBasket.length}</span>
             </div>
         </div>
     )
