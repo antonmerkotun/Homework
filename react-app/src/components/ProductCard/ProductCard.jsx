@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export let favoriteArr = []
 
 const ProductCard = (props) => {
-    const {card} = props
+    const {card, iconDelete} = props
     // const [favorite, setFavorite] = useState('')
 
     useEffect(() => {
@@ -50,13 +50,14 @@ const ProductCard = (props) => {
 
     return (
         <>
-            <div className={"card"} key={card.id}>
+            <div className={"card"}>
                 <div className={"card_icon-article"}>
                     <button id={card.id}
                             className={`icon-favorite`}
-                            // onClick={Favorites}
-                        />
+                        // onClick={Favorites}
+                    />
                     <span className={"card-article"}>article: {card.article}</span>
+                    {iconDelete}
                 </div>
                 <img className={"card-image"} src={card.src} alt={"img"}/>
                 <div className={"card_body"}>

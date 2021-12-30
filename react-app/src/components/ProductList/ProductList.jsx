@@ -1,41 +1,23 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import modalData from "../Modal/ModalData";
 import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
-import {observer} from "mobx-react-lite";
-import ArrayBasket from "../../Context";
-import Header from "../Header/Header";
+import "./ProductList.scss"
+import IconDelete from "../IconDelete/IconDelete";
 
+export let basketIcon = []
 
-// export let basketIcon = []
-
-const ProductList = observer(({product, type}) => {
-    const [arrayProduct, setArrayProduct] = useState([])
+const ProductList = ({arrayProduct, pages}) => {
     const [modalObject, setModalObject] = useState({})
     const [modalToShow, setModalToShow] = useState("none")
     const [basket, setBasket] = useState({})
 
-    const arrayBasket = useContext(ArrayBasket)
-
     useEffect(() => {
-        if (type === 'product_list') {
-            fetch("productList.json")
-                .then(response => response.json())
-                .then(result => {
-                    setArrayProduct(result)
-                })
-        //     if (basketIcon.length === 0) {
-        //         basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
-        //     }
-        //     if (basketIcon === null) {
-        //         basketIcon = []
-        //     }
-        // }
-        // if (type === 'basket' || type === 'favorite') {
-        //     setArrayProduct(product)
+        if (localStorage.getItem("basketIcon")) {
+            basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
         }
-    }, [product, type])
+    }, [arrayProduct])
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
@@ -50,36 +32,50 @@ const ProductList = observer(({product, type}) => {
     }
 
     const closeModal = (e) => {
-        arrayBasket.push(basket)
-        console.log(arrayBasket)
-        // const target = e.target.className
-        // if (target === "modal" ||
-        //     target === "modal_header-button" ||
-        //     target === "modal_body-buttons-cancel") {
-        //     setModalToShow("none")
-        // }
-        // if (target === "modal_body-buttons-save") {
-        //     if (type === "product_list") {
-        //         basketIcon.push(basket)
-                setModalToShow("none")
-        //         localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
-        //     }
-        // }
+        const target = e.target.className
+        if (pages === "Home") {
+            if (target === "modal_body-buttons-save") {
+                basketIcon.push(basket)
+                localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
+            }
+        }
+        if (pages === "Basket") {
+            if (target === "modal_body-buttons-save") {
+                basketIcon.forEach(el => {
+                    if (el.id === basket.id) {
+                        const newBasket = basketIcon.filter(fId => fId !== el)
+                        localStorage.setItem("basketIcon", JSON.stringify(newBasket))
+                    }
+                })
+            }
+        }
+        setModalToShow("none")
+    }
+
+    const deleteProduct = (e) => {
+        openModal(e)
+        arrayProduct.forEach(ele => {
+            if (ele.id === +e.target.id) {
+                setBasket(ele)
+            }
+        })
     }
 
     return (
         <>
-            <Header/>
-            <h1>{type}</h1>
-            {arrayProduct === null && <p>no card</p>}
+            <div className="product-list__title">
+                <h1>{pages}</h1>
+            </div>
+            {arrayProduct === null && <p className="no-card">no card</p>}
             {arrayProduct &&
                 <div className="product-list">
                     {arrayProduct.map(card => {
                             return <ProductCard
-                                type={type}
-                                card={card}
+                                iconDelete={pages === "Basket" &&
+                                    <IconDelete id={card.id} onClick={deleteProduct} dataModalId={"2"}/>}
                                 key={card.id}
-                                button={type === "favorite" ||
+                                card={card}
+                                button={pages === "Home" &&
                                     <Button
                                         id={card.id}
                                         dataModalId={"1"}
@@ -104,6 +100,6 @@ const ProductList = observer(({product, type}) => {
                 </div>}
         </>
     )
-})
+}
 
 export default ProductList
