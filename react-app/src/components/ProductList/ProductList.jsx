@@ -33,14 +33,12 @@ const ProductList = ({arrayProduct, pages}) => {
 
     const closeModal = (e) => {
         const target = e.target.className
-        if (pages === "Home") {
-            if (target === "modal_body-buttons-save") {
+        if (target === "modal_body-buttons-save") {
+            if (pages === "Home") {
                 basketIcon.push(basket)
                 localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
             }
-        }
-        if (pages === "Basket") {
-            if (target === "modal_body-buttons-save") {
+            if (pages === "Basket") {
                 basketIcon.forEach(el => {
                     if (el.id === basket.id) {
                         const newBasket = basketIcon.filter(fId => fId !== el)
