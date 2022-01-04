@@ -2,11 +2,12 @@ import React, {useEffect} from "react";
 import "./ProductCard.scss"
 import PropTypes from "prop-types";
 
-// export let favoriteArr = []
+export let favoriteArr = []
 
 const ProductCard = (props) => {
-    const {card, iconDelete} = props
-    // const [favorite, setFavorite] = useState('')
+    const {card, iconDelete, favoriteIcon} = props
+    // const [favorite, setFavorite] = useState(null)
+
 
     useEffect(() => {
         // if (localStorage.getItem("favoriteArray")) {
@@ -20,11 +21,12 @@ const ProductCard = (props) => {
         //         }
         //     })
         // }
-    })
+    }, [card])
 
     // const Favorites = (event) => {
     //     const el = event.target;
     //     const id = el.id
+    //     console.log(card)
     //     if (id) {
     //         let favorites = JSON.parse(localStorage.getItem("favorite")) || []
     //         if (favorites.includes(id)) {
@@ -53,8 +55,9 @@ const ProductCard = (props) => {
             <div className={"card"}>
                 <div className={"card_icon-article"}>
                     <button id={card.id}
-                            className={"icon-favorite"}
-                        onClick={props.favorite}
+                            className={`icon-favorite ${favoriteIcon}`}
+                        onClick={props.favoriteFunc}
+                            // onClick={Favorites}
                     />
                     <span className={"card-article"}>article: {card.article}</span>
                     {iconDelete}
