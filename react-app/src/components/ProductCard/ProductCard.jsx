@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import "./ProductCard.scss"
 import PropTypes from "prop-types";
 
-export let favoriteArr = []
+// export let favoriteArr = []
 
 const ProductCard = (props) => {
     const {card, iconDelete} = props
@@ -53,8 +53,8 @@ const ProductCard = (props) => {
             <div className={"card"}>
                 <div className={"card_icon-article"}>
                     <button id={card.id}
-                            className={`icon-favorite`}
-                        // onClick={Favorites}
+                            className={"icon-favorite"}
+                        onClick={props.favorite}
                     />
                     <span className={"card-article"}>article: {card.article}</span>
                     {iconDelete}

@@ -7,13 +7,20 @@ import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
 
 export let basketIcon = []
+export let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages}) => {
     const [modalObject, setModalObject] = useState({})
     const [modalToShow, setModalToShow] = useState("none")
     const [basket, setBasket] = useState({})
+    const [basketArray, setBasketArray] = useState(null)
+    const [numberButton, setNumberButton] = useState(null)
+    const [favorite, setFavorite] = useState('')
+
+
 
     useEffect(() => {
+        setBasketArray(arrayProduct)
         if (localStorage.getItem("basketIcon")) {
             basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
         }
@@ -21,10 +28,11 @@ const ProductList = ({arrayProduct, pages}) => {
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
+        setNumberButton(+e.target.id)
         const modalDeclaration = modalData.find(item => item.id === +modalID);
         setModalObject({...modalDeclaration})
         setModalToShow("Open modal")
-        arrayProduct.forEach(ele => {
+        basketArray.forEach(ele => {
             if (ele.id === +e.target.id) {
                 setBasket(ele)
             }
@@ -40,9 +48,11 @@ const ProductList = ({arrayProduct, pages}) => {
             }
             if (pages === "Basket") {
                 basketIcon.forEach(el => {
-                    if (el.id === basket.id) {
-                        const newBasket = basketIcon.filter(fId => fId !== el)
-                        localStorage.setItem("basketIcon", JSON.stringify(newBasket))
+                    if (el.id === numberButton) {
+                        const newArrayProduct = basketIcon.filter(newArr => newArr !== el)
+                        basketIcon = newArrayProduct
+                        setBasketArray(newArrayProduct)
+                        localStorage.setItem("basketIcon", JSON.stringify(newArrayProduct))
                     }
                 })
             }
@@ -52,11 +62,24 @@ const ProductList = ({arrayProduct, pages}) => {
 
     const deleteProduct = (e) => {
         openModal(e)
-        arrayProduct.forEach(ele => {
+        basketArray.forEach(ele => {
             if (ele.id === +e.target.id) {
                 setBasket(ele)
             }
         })
+    }
+
+    const handelFavorite = (el) => {
+        const button = el.target
+        arrayProduct.forEach(el => {
+            if (el.id === +button.id){
+                // setFavorite(...favorite, el)
+                // console.log(el)
+            }
+        })
+        // console.log(button)
+        button.classList.toggle("icon-favorite-add")
+        console.log(favorite)
     }
 
     return (
@@ -64,15 +87,15 @@ const ProductList = ({arrayProduct, pages}) => {
             <div className="product-list__title">
                 <h1>{pages}</h1>
             </div>
-            {arrayProduct === null && <p className="no-card">no card</p>}
-            {arrayProduct &&
+            {basketArray ?
                 <div className="product-list">
-                    {arrayProduct.map(card => {
+                    {basketArray.map(card => {
                             return <ProductCard
                                 iconDelete={pages === "Basket" &&
                                     <IconDelete id={card.id} onClick={deleteProduct} dataModalId={"2"}/>}
                                 key={card.id}
                                 card={card}
+                                favorite={handelFavorite}
                                 button={pages === "Home" &&
                                     <Button
                                         id={card.id}
@@ -95,7 +118,7 @@ const ProductList = ({arrayProduct, pages}) => {
                             action={modalObject.action}
                         />
                     }
-                </div>}
+                </div> : <p className="no-card">no card</p>}
         </>
     )
 }
