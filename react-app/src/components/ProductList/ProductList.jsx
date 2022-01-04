@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import modalData from "../Modal/ModalData";
-import ProductCard, {favoriteArr} from "../ProductCard/ProductCard";
+import ProductCard from "../ProductCard/ProductCard";
 import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
 
 export let basketIcon = []
-// export let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages}) => {
     const [modalObject, setModalObject] = useState({})
@@ -15,7 +14,6 @@ const ProductList = ({arrayProduct, pages}) => {
     const [basket, setBasket] = useState({})
     const [basketArray, setBasketArray] = useState(null)
     const [numberButton, setNumberButton] = useState(null)
-    const [favorite, setFavorite] = useState(null)
 
 
     useEffect(() => {
@@ -23,8 +21,6 @@ const ProductList = ({arrayProduct, pages}) => {
         if (localStorage.getItem("basketIcon")) {
             basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
         }
-
-
     }, [arrayProduct])
 
     const openModal = (e) => {
@@ -70,39 +66,6 @@ const ProductList = ({arrayProduct, pages}) => {
         })
     }
 
-    const handelFavorite = (event) => {
-        const el = event.target;
-        const id = el.id
-        let card
-        arrayProduct.forEach(e => {
-            if (e.id === +id){
-                card = e
-            }
-        })
-
-        if (id) {
-            let favorites = JSON.parse(localStorage.getItem("favorite")) || []
-            if (favorites.includes(id)) {
-                el.classList = 'icon-favorite'
-                favorites = favorites.filter(fId => fId !== id)
-            } else {
-                el.classList = 'icon-favorite-add'
-                favorites.push(id)
-            }
-            localStorage.setItem("favorite", JSON.stringify(favorites))
-        }
-
-        if (el.className === 'icon-favorite-add') {
-            favoriteArr.push(card)
-        }
-        if (el.className === 'icon-favorite') {
-            favoriteArr.forEach(function (a, b) {
-                if (a.id === card.id) favoriteArr.splice(b, 1)
-            })
-        }
-        localStorage.setItem("favoriteArray", JSON.stringify(favoriteArr))
-    }
-
     return (
         <>
             <div className="product-list__title">
@@ -116,8 +79,6 @@ const ProductList = ({arrayProduct, pages}) => {
                                     <IconDelete id={card.id} onClick={deleteProduct} dataModalId={"2"}/>}
                                 key={card.id}
                                 card={card}
-                                favoriteIcon={favorite}
-                                favoriteFunc={handelFavorite}
                                 button={pages === "Home" &&
                                     <Button
                                         id={card.id}

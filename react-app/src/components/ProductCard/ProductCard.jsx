@@ -1,63 +1,60 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "./ProductCard.scss"
 import PropTypes from "prop-types";
 
 export let favoriteArr = []
 
 const ProductCard = (props) => {
-    const {card, iconDelete, favoriteIcon} = props
-    // const [favorite, setFavorite] = useState(null)
-
+    const {card, iconDelete} = props
+    const [favorite, setFavorite] = useState(null)
 
     useEffect(() => {
-        // if (localStorage.getItem("favoriteArray")) {
-        //     favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
-        // }
-        // const historyFavorite = JSON.parse(localStorage.getItem("favoriteArray"))
-        // if (historyFavorite) {
-        //     historyFavorite.forEach(e => {
-        //         if (e.id === card.id) {
-        //             setFavorite("icon-favorite-add")
-        //         }
-        //     })
-        // }
-    }, [card])
+        if (localStorage.getItem("favoriteArray")) {
+            favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
+        }
+        const historyFavorite = JSON.parse(localStorage.getItem("favoriteArray"))
+        if (historyFavorite) {
+            historyFavorite.forEach(e => {
+                if (e.id === card.id) {
+                    setFavorite("icon-favorite-add")
+                }
+            })
+        }
+    })
 
-    // const Favorites = (event) => {
-    //     const el = event.target;
-    //     const id = el.id
-    //     console.log(card)
-    //     if (id) {
-    //         let favorites = JSON.parse(localStorage.getItem("favorite")) || []
-    //         if (favorites.includes(id)) {
-    //             el.classList = 'icon-favorite'
-    //             favorites = favorites.filter(fId => fId !== id)
-    //         } else {
-    //             el.classList = 'icon-favorite-add'
-    //             favorites.push(id)
-    //         }
-    //         localStorage.setItem("favorite", JSON.stringify(favorites))
-    //     }
-    //
-    //     if (el.className === 'icon-favorite-add') {
-    //         favoriteArr.push(card)
-    //     }
-    //     if (el.className === 'icon-favorite') {
-    //         favoriteArr.forEach(function (a, b) {
-    //             if (a.id === card.id) favoriteArr.splice(b, 1)
-    //         })
-    //     }
-    //     localStorage.setItem("favoriteArray", JSON.stringify(favoriteArr))
-    // }
+    const Favorites = (event) => {
+        const el = event.target;
+        const id = el.id
+        if (id) {
+            let favorites = JSON.parse(localStorage.getItem("favorite")) || []
+            if (favorites.includes(id)) {
+                el.classList = 'icon-favorite'
+                favorites = favorites.filter(fId => fId !== id)
+            } else {
+                el.classList = 'icon-favorite-add'
+                favorites.push(id)
+            }
+            localStorage.setItem("favorite", JSON.stringify(favorites))
+        }
+
+        if (el.className === 'icon-favorite-add') {
+            favoriteArr.push(card)
+        }
+        if (el.className === 'icon-favorite') {
+            favoriteArr.forEach(function (a, b) {
+                if (a.id === card.id) favoriteArr.splice(b, 1)
+            })
+        }
+        localStorage.setItem("favoriteArray", JSON.stringify(favoriteArr))
+    }
 
     return (
         <>
             <div className={"card"}>
                 <div className={"card_icon-article"}>
                     <button id={card.id}
-                            className={`icon-favorite ${favoriteIcon}`}
-                        onClick={props.favoriteFunc}
-                            // onClick={Favorites}
+                            className={`icon-favorite ${favorite}`}
+                            onClick={Favorites}
                     />
                     <span className={"card-article"}>article: {card.article}</span>
                     {iconDelete}
