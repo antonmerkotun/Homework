@@ -7,6 +7,7 @@ import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
 
 export let basketIcon = []
+export let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages}) => {
     const [modalObject, setModalObject] = useState({})
@@ -20,6 +21,10 @@ const ProductList = ({arrayProduct, pages}) => {
         setBasketArray(arrayProduct)
         if (localStorage.getItem("basketIcon")) {
             basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
+        }
+
+        if (localStorage.getItem("favoriteArray")) {
+            favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
         }
     }, [arrayProduct])
 
@@ -66,6 +71,35 @@ const ProductList = ({arrayProduct, pages}) => {
         })
     }
 
+    const favoriteFunc = (event) => {
+        const el = event.target;
+        const id = el.id
+        if (id) {
+            let favorites = JSON.parse(localStorage.getItem("favorite")) || []
+            if (favorites.includes(id)) {
+                el.classList = 'icon-favorite'
+                favorites = favorites.filter(fId => fId !== id)
+            } else {
+                el.classList = 'icon-favorite-add'
+                favorites.push(id)
+            }
+            localStorage.setItem("favorite", JSON.stringify(favorites))
+        }
+        basketArray.forEach(card => {
+            if (card.id === +id) {
+                if (el.className === 'icon-favorite-add') {
+                    favoriteArr.push(card)
+                }
+                if (el.className === 'icon-favorite') {
+                    favoriteArr.forEach(function (a, b) {
+                        if (a.id === card.id) favoriteArr.splice(b, 1)
+                    })
+                }
+                localStorage.setItem("favoriteArray", JSON.stringify(favoriteArr))
+            }
+        })
+    }
+
     return (
         <>
             <div className="product-list__title">
@@ -75,6 +109,7 @@ const ProductList = ({arrayProduct, pages}) => {
                 <div className="product-list">
                     {basketArray.map(card => {
                             return <ProductCard
+                                favoriteFunc={favoriteFunc}
                                 iconDelete={pages === "Basket" &&
                                     <IconDelete id={card.id} onClick={deleteProduct} dataModalId={"2"}/>}
                                 key={card.id}

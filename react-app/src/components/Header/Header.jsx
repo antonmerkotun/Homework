@@ -1,10 +1,8 @@
 import React from "react";
 import "./Header.scss"
 import {Link} from "react-router-dom";
-// import ArrayBasket from "../../Context";
 
 const Header = () => {
-    // const arrayBasket = useContext(ArrayBasket)
     return (
         <div className={"header"}>
             <div>

@@ -13,9 +13,9 @@ const App = () => {
         <BrowserRouter>
             <Header/>
             <Routes>
-                <Route exact path="favorite" element={<Favorite/>}/>
+                <Route exact path="/favorite" element={<Favorite/>}/>
                 <Route exact path="/" element={<Home/>}/>
-                <Route exact path="basket" element={<Basket/>}/>}/>
+                <Route exact path="/basket" element={<Basket/>}/>}/>
             </Routes>
         </BrowserRouter>
     )

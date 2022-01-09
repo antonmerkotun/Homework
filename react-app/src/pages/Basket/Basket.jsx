@@ -3,7 +3,7 @@ import ProductList from "../../components/ProductList/ProductList";
 
 const Basket = () => {
     const product = JSON.parse(localStorage.getItem("basketIcon"))
-    return(
+    return (
         <ProductList arrayProduct={product} pages={"Basket"}/>
     )
 }
