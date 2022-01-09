@@ -36,7 +36,6 @@ const ProductCard = (props) => {
                 </div>
                 {props.button}
             </div>
-
         </>
     )
 }

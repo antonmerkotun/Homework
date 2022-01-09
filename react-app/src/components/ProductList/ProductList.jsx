@@ -6,7 +6,7 @@ import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
 
-export let basketIcon = []
+export let basketArr = []
 export let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages}) => {
@@ -19,10 +19,9 @@ const ProductList = ({arrayProduct, pages}) => {
 
     useEffect(() => {
         setBasketArray(arrayProduct)
-        if (localStorage.getItem("basketIcon")) {
-            basketIcon = JSON.parse(localStorage.getItem("basketIcon"))
+        if (localStorage.getItem("basketArr")) {
+            basketArr = JSON.parse(localStorage.getItem("basketArr"))
         }
-
         if (localStorage.getItem("favoriteArray")) {
             favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
         }
@@ -45,16 +44,16 @@ const ProductList = ({arrayProduct, pages}) => {
         const target = e.target.className
         if (target === "modal_body-buttons-save") {
             if (pages === "Home") {
-                basketIcon.push(basket)
-                localStorage.setItem("basketIcon", JSON.stringify(basketIcon))
+                basketArr.push(basket)
+                localStorage.setItem("basketArr", JSON.stringify(basketArr))
             }
             if (pages === "Basket") {
-                basketIcon.forEach(el => {
+                basketArr.forEach(el => {
                     if (el.id === numberButton) {
-                        const newArrayProduct = basketIcon.filter(newArr => newArr !== el)
-                        basketIcon = newArrayProduct
+                        const newArrayProduct = basketArr.filter(newArr => newArr !== el)
+                        basketArr = newArrayProduct
                         setBasketArray(newArrayProduct)
-                        localStorage.setItem("basketIcon", JSON.stringify(newArrayProduct))
+                        localStorage.setItem("basketArr", JSON.stringify(newArrayProduct))
                     }
                 })
             }
