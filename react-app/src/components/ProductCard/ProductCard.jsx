@@ -2,16 +2,15 @@ import React, {useEffect, useState} from "react";
 import "./ProductCard.scss"
 import PropTypes from "prop-types";
 
-const ProductCard = (props) => {
-    const {card, iconDelete} = props
-    const [favorite, setFavorite] = useState(null)
+const ProductCard = ({card, iconDelete, button, favoriteFunc}) => {
+    const [favoriteIcon, setFavoriteIcon] = useState(null)
 
     useEffect(() => {
         const historyFavorite = JSON.parse(localStorage.getItem("favoriteArray"))
         if (historyFavorite) {
             historyFavorite.forEach(e => {
                 if (e.id === card.id) {
-                    setFavorite("icon-favorite-add")
+                    setFavoriteIcon("icon-favorite-add")
                 }
             })
         }
@@ -22,8 +21,8 @@ const ProductCard = (props) => {
             <div className={"card"}>
                 <div className={"card_icon-article"}>
                     <button id={card.id}
-                            className={`icon-favorite ${favorite}`}
-                            onClick={props.favoriteFunc}
+                            className={`icon-favorite ${favoriteIcon}`}
+                            onClick={favoriteFunc}
                     />
                     <span className={"card-article"}>article: {card.article}</span>
                     {iconDelete}
@@ -34,7 +33,7 @@ const ProductCard = (props) => {
                     <p className={"card_body-price"}>Price: {card.price} $</p>
                     <p className={"card_body-color"}>Color: {card.color}</p>
                 </div>
-                {props.button}
+                {button}
             </div>
         </>
     )

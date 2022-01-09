@@ -5,13 +5,14 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
+import {connect} from "react-redux";
 
 export let basketArr = []
 export let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages}) => {
     const [modalObject, setModalObject] = useState({})
-    const [modalToShow, setModalToShow] = useState("none")
+    const [modalToShow, setModalToShow] = useState("CLOSE_MODAL")
     const [basket, setBasket] = useState({})
     const [basketArray, setBasketArray] = useState(null)
     const [numberButton, setNumberButton] = useState(null)
@@ -32,7 +33,7 @@ const ProductList = ({arrayProduct, pages}) => {
         setNumberButton(+e.target.id)
         const modalDeclaration = modalData.find(item => item.id === +modalID);
         setModalObject({...modalDeclaration})
-        setModalToShow("Open modal")
+        setModalToShow("OPEN_MODAL")
         basketArray.forEach(ele => {
             if (ele.id === +e.target.id) {
                 setBasket(ele)
@@ -58,7 +59,7 @@ const ProductList = ({arrayProduct, pages}) => {
                 })
             }
         }
-        setModalToShow("none")
+        setModalToShow("CLOSE_MODAL")
     }
 
     const deleteProduct = (e) => {
@@ -126,7 +127,7 @@ const ProductList = ({arrayProduct, pages}) => {
                             />
                         }
                     )}
-                    {modalToShow === "Open modal" &&
+                    {modalToShow === "OPEN_MODAL" &&
                         <Modal
                             onClick={closeModal}
                             header={modalObject.header}
@@ -140,4 +141,10 @@ const ProductList = ({arrayProduct, pages}) => {
     )
 }
 
-export default ProductList
+const mapStateToProps = state => {
+  return {
+      value: state.modalState,
+  }
+}
+
+export default connect(mapStateToProps)(ProductList)
