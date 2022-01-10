@@ -14,7 +14,7 @@ const ProductList = ({arrayProduct, pages}) => {
     const [modalObject, setModalObject] = useState({})
     const [modalToShow, setModalToShow] = useState("CLOSE_MODAL")
     const [basket, setBasket] = useState({})
-    const [basketArray, setBasketArray] = useState(null)
+    const [basketArray, setBasketArray] = useState([])
     const [numberButton, setNumberButton] = useState(null)
 
 
@@ -105,7 +105,7 @@ const ProductList = ({arrayProduct, pages}) => {
             <div className="product-list__title">
                 <h1>{pages}</h1>
             </div>
-            {basketArray ?
+            {basketArray.length ?
                 <div className="product-list">
                     {basketArray.map(card => {
                             return <ProductCard
