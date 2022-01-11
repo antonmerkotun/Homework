@@ -6,17 +6,17 @@ import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
 import {connect} from "react-redux";
+import {closeModals, openModals} from "../../redux/action";
 
-export let basketArr = []
-export let favoriteArr = []
+let basketArr = []
+let favoriteArr = []
 
-const ProductList = ({arrayProduct, pages}) => {
+const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) => {
     const [modalObject, setModalObject] = useState({})
-    const [modalToShow, setModalToShow] = useState("CLOSE_MODAL")
+    // const [modalToShow, setModalToShow] = useState("CLOSE_MODAL")
     const [basket, setBasket] = useState({})
     const [basketArray, setBasketArray] = useState([])
     const [numberButton, setNumberButton] = useState(null)
-
 
     useEffect(() => {
         setBasketArray(arrayProduct)
@@ -33,7 +33,8 @@ const ProductList = ({arrayProduct, pages}) => {
         setNumberButton(+e.target.id)
         const modalDeclaration = modalData.find(item => item.id === +modalID);
         setModalObject({...modalDeclaration})
-        setModalToShow("OPEN_MODAL")
+        // setModalToShow("OPEN_MODAL")
+        openModals()
         basketArray.forEach(ele => {
             if (ele.id === +e.target.id) {
                 setBasket(ele)
@@ -59,7 +60,8 @@ const ProductList = ({arrayProduct, pages}) => {
                 })
             }
         }
-        setModalToShow("CLOSE_MODAL")
+        // setModalToShow("CLOSE_MODAL")
+        closeModals()
     }
 
     const deleteProduct = (e) => {
@@ -70,6 +72,8 @@ const ProductList = ({arrayProduct, pages}) => {
             }
         })
     }
+
+
 
     const favoriteFunc = (event) => {
         const el = event.target;
@@ -127,7 +131,7 @@ const ProductList = ({arrayProduct, pages}) => {
                             />
                         }
                     )}
-                    {modalToShow === "OPEN_MODAL" &&
+                    {syncModal[0] === "OPEN_MODAL" &&
                         <Modal
                             onClick={closeModal}
                             header={modalObject.header}
@@ -142,9 +146,15 @@ const ProductList = ({arrayProduct, pages}) => {
 }
 
 const mapStateToProps = state => {
-  return {
-      value: state.modalState,
-  }
+    return {
+        syncModal: state.modal.stateModal
+    }
 }
 
-export default connect(mapStateToProps)(ProductList)
+const mapDispatchToProps = {
+    openModals,
+    closeModals,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
+// export default ProductList
