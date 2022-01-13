@@ -1,4 +1,4 @@
-import {OPEN_MODAL, CLOSE_MODAL} from "./type/types";
+import {OPEN_MODAL, CLOSE_MODAL, AJAX_PRODUCTS} from "./type/types";
 
 export function openModals() {
     return {
@@ -11,5 +11,12 @@ export function closeModals() {
     return {
         type: CLOSE_MODAL,
         payload: "CLOSE_MODAL"
+    }
+}
+
+export function ajaxProduct(ajax) {
+    return {
+        type: AJAX_PRODUCTS,
+        payload: ajax
     }
 }

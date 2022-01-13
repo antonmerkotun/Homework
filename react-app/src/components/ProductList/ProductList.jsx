@@ -73,7 +73,6 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
         })
     }
 
-
     const favoriteFunc = (event) => {
         const el = event.target;
         const id = el.id
@@ -130,7 +129,7 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
                             />
                         }
                     )}
-                    {syncModal[0] === "OPEN_MODAL" &&
+                    {syncModal === "OPEN_MODAL" &&
                         <Modal
                             onClick={closeModal}
                             header={modalObject.header}
@@ -146,7 +145,7 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
 
 const mapStateToProps = state => {
     return {
-        syncModal: state.modal.stateModal
+        syncModal: state.modal
     }
 }
 
