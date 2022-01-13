@@ -1,8 +1,5 @@
 import {CLOSE_MODAL, OPEN_MODAL} from "../type/types";
-
-const initialState = {
-    stateModal: [],
-}
+import {initialState} from "../store";
 
 
 export const modalReducer = (state = initialState, action) => {

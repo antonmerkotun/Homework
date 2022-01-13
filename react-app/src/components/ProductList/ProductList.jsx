@@ -13,13 +13,15 @@ let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) => {
     const [modalObject, setModalObject] = useState({})
-    // const [modalToShow, setModalToShow] = useState("CLOSE_MODAL")
     const [basket, setBasket] = useState({})
     const [basketArray, setBasketArray] = useState([])
     const [numberButton, setNumberButton] = useState(null)
 
     useEffect(() => {
         setBasketArray(arrayProduct)
+        if (arrayProduct === null) {
+            setBasketArray([])
+        }
         if (localStorage.getItem("basketArr")) {
             basketArr = JSON.parse(localStorage.getItem("basketArr"))
         }
@@ -33,7 +35,6 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
         setNumberButton(+e.target.id)
         const modalDeclaration = modalData.find(item => item.id === +modalID);
         setModalObject({...modalDeclaration})
-        // setModalToShow("OPEN_MODAL")
         openModals()
         basketArray.forEach(ele => {
             if (ele.id === +e.target.id) {
@@ -60,7 +61,6 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
                 })
             }
         }
-        // setModalToShow("CLOSE_MODAL")
         closeModals()
     }
 
@@ -72,7 +72,6 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
             }
         })
     }
-
 
 
     const favoriteFunc = (event) => {
@@ -157,4 +156,3 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
-// export default ProductList
