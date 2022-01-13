@@ -1,4 +1,4 @@
-import {OPEN_MODAL, CLOSE_MODAL, AJAX_PRODUCTS} from "./type/types";
+import {OPEN_MODAL, CLOSE_MODAL, AJAX_PRODUCTS} from "./types";
 
 export function openModals() {
     return {

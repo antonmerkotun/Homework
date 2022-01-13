@@ -1,11 +1,11 @@
 import {initialState} from "../store";
-import {AJAX_PRODUCTS} from "../type/types";
+import {AJAX_PRODUCTS} from "../types";
 
 
 export const ajaxReducer = (state = initialState.ajaxProducts, action) => {
     switch (action.type) {
         case AJAX_PRODUCTS:
-            return action.payload
+            return {phone: action.payload}
         default: return state
     }
 }

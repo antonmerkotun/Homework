@@ -3,7 +3,7 @@ import ProductList from "../../components/ProductList/ProductList";
 import {ajaxProduct} from "../../redux/action";
 import {connect} from "react-redux";
 
-const Home = ({ajaxProduct, ajax = []}) => {
+const Home = ({ajaxProduct, ajaxProd = []}) => {
 
     useEffect(() => {
         fetch("productList.json")
@@ -13,13 +13,13 @@ const Home = ({ajaxProduct, ajax = []}) => {
             })
     }, [ajaxProduct])
     return (
-        <ProductList arrayProduct={ajax} pages={"Home"}/>
+        <ProductList arrayProduct={ajaxProd} pages={"Home"}/>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        ajax: state.ajax
+        ajaxProd: state.ajax.phone
     }
 }
 
