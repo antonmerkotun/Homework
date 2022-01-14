@@ -1,30 +1,19 @@
 import React, {useEffect} from "react";
 import ProductList from "../../components/ProductList/ProductList";
+import {useDispatch, useSelector} from "react-redux";
 import {ajaxProduct} from "../../redux/action";
-import {connect} from "react-redux";
 
-const Home = ({ajaxProduct, ajaxProd = []}) => {
 
+const Home = () => {
+    const dispatch = useDispatch()
+    const product = useSelector(state => state.ajax.phone) || []
     useEffect(() => {
-        fetch("productList.json")
-            .then(response => response.json())
-            .then(result => {
-                ajaxProduct(result)
-            })
-    }, [ajaxProduct])
+        dispatch(ajaxProduct())
+    }, [dispatch])
+
     return (
-        <ProductList arrayProduct={ajaxProd} pages={"Home"}/>
+        <ProductList arrayProduct={product} pages={"Home"}/>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        ajaxProd: state.ajax.phone
-    }
-}
-
-const mapDispatchToProps = {
-    ajaxProduct,
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default Home
