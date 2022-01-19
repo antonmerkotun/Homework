@@ -1,12 +1,27 @@
-import {AJAX_PRODUCTS} from "../types";
+import {ADD_TODO_STARTED, ADD_TODO_SUCCESS, ADD_TODO_FAILURE} from "../types";
 
-export function ajaxProduct() {
+export const addTodo = (API) => {
     return async dispatch => {
-        const response = await fetch('productList.json')
-        const json = await response.json()
-        dispatch({
-            type: AJAX_PRODUCTS,
-            payload: json
-        })
+        dispatch(addTodoStarted());
+        await fetch(API)
+            .then(res => res.json())
+            .then(res => dispatch(addTodoSuccess(res)))
+            .catch(err => dispatch(addTodoFailure(err.message)));
+    };
+};
+
+const addTodoStarted = () => ({
+    type: ADD_TODO_STARTED
+});
+
+const addTodoSuccess = todo => ({
+    type: ADD_TODO_SUCCESS,
+    payload: todo
+});
+
+const addTodoFailure = error => ({
+    type: ADD_TODO_FAILURE,
+    payload: {
+        error
     }
-}
+});

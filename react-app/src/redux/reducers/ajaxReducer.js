@@ -1,13 +1,32 @@
-import {AJAX_PRODUCTS} from "../types";
+import {ADD_TODO_SUCCESS, ADD_TODO_STARTED, ADD_TODO_FAILURE} from "../types";
 
-export const initialState = {
-    ajaxProducts: [],
-}
+const initialState = {
+    loading: false,
+    todos: [],
+    error: null
+};
 
-export const ajaxReducer = (state = initialState, action) => {
+export  function todosReducer(state = initialState, action) {
     switch (action.type) {
-        case AJAX_PRODUCTS:
-            return {phone: action.payload}
-        default: return state
+        case ADD_TODO_STARTED:
+            return {
+                ...state,
+                loading: true
+            };
+        case ADD_TODO_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                todos: [...action.payload],
+                error: null
+            };
+        case ADD_TODO_FAILURE:
+            return {
+                ...state,
+                loading: false,
+                error: action.payload.error
+            };
+        default:
+            return state;
     }
 }

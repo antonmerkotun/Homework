@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
 import ProductList from "../../components/ProductList/ProductList";
 import {useDispatch, useSelector} from "react-redux";
-import {ajaxProduct} from "../../redux/actions/ajaxAction";
-
+import {addTodo} from "../../redux/actions/ajaxAction";
 
 const Home = () => {
     const dispatch = useDispatch()
-    const product = useSelector(state => state.ajax.phone) || []
+    const product = useSelector(state => state.ajax.todos) || []
+
     useEffect(() => {
-        dispatch(ajaxProduct())
+        dispatch((addTodo("productList.json")))
     }, [dispatch])
 
     return (

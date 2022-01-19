@@ -7,9 +7,9 @@ const initialState = {
 export const modalReducer = (state = initialState, action) => {
     switch (action.type) {
         case OPEN_MODAL:
-            return action.payload
+            return {...state, stateModal: action.payload}
         case CLOSE_MODAL:
-            return action.payload
+            return {...state, stateModal: action.payload}
         default:
             return state
     }

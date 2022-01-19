@@ -1,6 +1,6 @@
 import {BASKET_ARRAY} from "../types";
 
-export function basketAction(basket) {
+export function basketProduct(basket) {
     return async dispatch => {
         dispatch({
             type: BASKET_ARRAY,

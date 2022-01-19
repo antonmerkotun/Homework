@@ -1,10 +1,11 @@
 import {combineReducers} from "redux";
 import {modalReducer} from "./modalReducer";
-import {ajaxReducer} from "./ajaxReducer";
+import {todosReducer} from "./ajaxReducer";
 import {basketReducer} from "./basketReducer";
 
 export const rootReducer = combineReducers({
-    ajax: ajaxReducer,
-    modal: modalReducer,
+    ajax: todosReducer,
     basket: basketReducer,
+    // favorite: favoriteReducer,
+    modal: modalReducer,
 })

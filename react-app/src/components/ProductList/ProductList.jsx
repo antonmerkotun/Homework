@@ -5,13 +5,15 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
-import {connect} from "react-redux";
+import {connect, useSelector} from "react-redux";
 import {closeModals, openModals} from "../../redux/actions/modalAction";
+import {basketProduct} from "../../redux/actions/basketAction";
 
 let basketArr = []
 let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) => {
+    const error = useSelector(state => state.ajax.error)
     const [modalObject, setModalObject] = useState({})
     const [basket, setBasket] = useState({})
     const [basketArray, setBasketArray] = useState([])
@@ -138,20 +140,21 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
                             action={modalObject.action}
                         />
                     }
-                </div> : <p className="no-card">no card</p>}
+                </div> : <p className="no-card">{typeof error === "string" ? "Server is not available" : "no card"}</p>}
         </>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        syncModal: state.modal
+        syncModal: state.modal.stateModal
     }
 }
 
 const mapDispatchToProps = {
     openModals,
     closeModals,
+    basketProduct,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList)
