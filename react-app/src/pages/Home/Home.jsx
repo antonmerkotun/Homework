@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import ProductList from "../../components/ProductList/ProductList";
 import {useDispatch, useSelector} from "react-redux";
-import {ajaxProduct} from "../../redux/action";
+import {ajaxProduct} from "../../redux/actions/ajaxAction";
 
 
 const Home = () => {
@@ -16,4 +16,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;

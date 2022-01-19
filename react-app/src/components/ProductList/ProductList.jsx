@@ -6,7 +6,7 @@ import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
 import {connect} from "react-redux";
-import {closeModals, openModals} from "../../redux/action";
+import {closeModals, openModals} from "../../redux/actions/modalAction";
 
 let basketArr = []
 let favoriteArr = []
