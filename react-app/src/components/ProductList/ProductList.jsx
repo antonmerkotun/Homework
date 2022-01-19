@@ -8,12 +8,15 @@ import IconDelete from "../IconDelete/IconDelete";
 import {connect, useSelector} from "react-redux";
 import {closeModals, openModals} from "../../redux/actions/modalAction";
 import {basketProduct} from "../../redux/actions/basketAction";
+import Loading from "../Loading/Loading";
 
 let basketArr = []
 let favoriteArr = []
 
 const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) => {
     const error = useSelector(state => state.ajax.error)
+    const loading = useSelector(state => state.ajax.loading)
+
     const [modalObject, setModalObject] = useState({})
     const [basket, setBasket] = useState({})
     const [basketArray, setBasketArray] = useState([])
@@ -106,6 +109,7 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
 
     return (
         <>
+            {/*loading === true ? <Loading/> :*/}
             <div className="product-list__title">
                 <h1>{pages}</h1>
             </div>

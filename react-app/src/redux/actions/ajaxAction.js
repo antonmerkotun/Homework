@@ -2,11 +2,13 @@ import {ADD_TODO_STARTED, ADD_TODO_SUCCESS, ADD_TODO_FAILURE} from "../types";
 
 export const addTodo = (API) => {
     return async dispatch => {
-        dispatch(addTodoStarted());
-        await fetch(API)
-            .then(res => res.json())
-            .then(res => dispatch(addTodoSuccess(res)))
-            .catch(err => dispatch(addTodoFailure(err.message)));
+        dispatch(addTodoStarted())
+        setTimeout(() => {
+            fetch(API)
+                .then(res => res.json())
+                .then(res => dispatch(addTodoSuccess(res)))
+                .catch(err => dispatch(addTodoFailure(err.message)))
+        }, 2000)
     };
 };
 
