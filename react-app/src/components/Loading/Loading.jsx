@@ -6,6 +6,7 @@ function Loading() {
         <div className="preloader">
             <div className="preloader__image"/>
         </div>
+        // <p>Loading</p>
     );
 }
 

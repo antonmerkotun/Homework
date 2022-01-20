@@ -109,42 +109,46 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
 
     return (
         <>
-            {/*loading === true ? <Loading/> :*/}
             <div className="product-list__title">
                 <h1>{pages}</h1>
             </div>
-            {basketArray.length ?
-                <div className="product-list">
-                    {basketArray.map(card => {
-                            return <ProductCard
-                                favoriteFunc={favoriteFunc}
-                                iconDelete={pages === "Basket" &&
-                                    <IconDelete id={card.id} onClick={deleteProduct} dataModalId={"2"}/>}
-                                key={card.id}
-                                card={card}
-                                button={pages === "Home" &&
-                                    <Button
-                                        id={card.id}
-                                        dataModalId={"1"}
-                                        className="button-modal"
-                                        backgroundColor={{background: "#FFF"}}
-                                        onClick={openModal}
-                                        text={"Add to card"}
+            {loading === true ? <Loading/> :
+                <>
+                    {basketArray.length ?
+                        <div className="product-list">
+                            {basketArray.map(card => {
+                                    return <ProductCard
+                                        favoriteFunc={favoriteFunc}
+                                        iconDelete={pages === "Basket" &&
+                                            <IconDelete id={card.id} onClick={deleteProduct} dataModalId={"2"}/>}
+                                        key={card.id}
+                                        card={card}
+                                        button={pages === "Home" &&
+                                            <Button
+                                                id={card.id}
+                                                dataModalId={"1"}
+                                                className="button-modal"
+                                                backgroundColor={{background: "#FFF"}}
+                                                onClick={openModal}
+                                                text={"Add to card"}
+                                            />
+                                        }
                                     />
                                 }
-                            />
-                        }
-                    )}
-                    {syncModal === "OPEN_MODAL" &&
-                        <Modal
-                            onClick={closeModal}
-                            header={modalObject.header}
-                            closeButton={modalObject.closeButton}
-                            text={modalObject.text}
-                            action={modalObject.action}
-                        />
-                    }
-                </div> : <p className="no-card">{typeof error === "string" ? "Server is not available" : "no card"}</p>}
+                            )}
+                            {syncModal === "OPEN_MODAL" &&
+                                <Modal
+                                    onClick={closeModal}
+                                    header={modalObject.header}
+                                    closeButton={modalObject.closeButton}
+                                    text={modalObject.text}
+                                    action={modalObject.action}
+                                />
+                            }
+                        </div> :
+                        <p className="no-card">{typeof error === "string" ? "Server is not available" : "no card"}</p>}
+                </>
+            }
         </>
     )
 }

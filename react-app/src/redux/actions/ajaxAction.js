@@ -8,7 +8,7 @@ export const addTodo = (API) => {
                 .then(res => res.json())
                 .then(res => dispatch(addTodoSuccess(res)))
                 .catch(err => dispatch(addTodoFailure(err.message)))
-        }, 2000)
+        }, 1000)
     };
 };
 
