@@ -5,17 +5,24 @@ import Button from "../Button/Button";
 import Modal from "../Modal/Modal";
 import "./ProductList.scss"
 import IconDelete from "../IconDelete/IconDelete";
-import {connect, useSelector} from "react-redux";
+import {connect} from "react-redux";
 import {closeModals, openModals} from "../../redux/actions/modalAction";
 import {basketProduct} from "../../redux/actions/basketAction";
 import Loading from "../Loading/Loading";
 
-let basketArr = []
 let favoriteArr = []
 
-const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) => {
-    const error = useSelector(state => state.ajax.error)
-    const loading = useSelector(state => state.ajax.loading)
+const ProductList = ({
+                         arrayProduct,
+                         pages,
+                         openModals,
+                         closeModals,
+                         syncModal,
+                         basketProduct,
+                         basketArr,
+                         error,
+                         loading
+                     }) => {
 
     const [modalObject, setModalObject] = useState({})
     const [basket, setBasket] = useState({})
@@ -28,12 +35,12 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
             setBasketArray([])
         }
         if (localStorage.getItem("basketArr")) {
-            basketArr = JSON.parse(localStorage.getItem("basketArr"))
+            basketProduct(JSON.parse(localStorage.getItem("basketArr")))
         }
         if (localStorage.getItem("favoriteArray")) {
             favoriteArr = JSON.parse(localStorage.getItem("favoriteArray"))
         }
-    }, [arrayProduct])
+    }, [arrayProduct, basketProduct])
 
     const openModal = (e) => {
         const modalID = e.target.dataset.modalId;
@@ -52,6 +59,7 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
         const target = e.target.className
         if (target === "modal_body-buttons-save") {
             if (pages === "Home") {
+                basketProduct(basket)
                 basketArr.push(basket)
                 localStorage.setItem("basketArr", JSON.stringify(basketArr))
             }
@@ -59,7 +67,7 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
                 basketArr.forEach(el => {
                     if (el.id === numberButton) {
                         const newArrayProduct = basketArr.filter(newArr => newArr !== el)
-                        basketArr = newArrayProduct
+                        basketProduct(newArrayProduct)
                         setBasketArray(newArrayProduct)
                         localStorage.setItem("basketArr", JSON.stringify(newArrayProduct))
                     }
@@ -155,7 +163,10 @@ const ProductList = ({arrayProduct, pages, openModals, closeModals, syncModal}) 
 
 const mapStateToProps = state => {
     return {
-        syncModal: state.modal.stateModal
+        syncModal: state.modal.stateModal,
+        basketArr: state.basket.basketProducts,
+        error: state.ajax.error,
+        loading: state.ajax.loading,
     }
 }
 

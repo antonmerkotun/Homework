@@ -6,6 +6,5 @@ import {basketReducer} from "./basketReducer";
 export const rootReducer = combineReducers({
     ajax: todosReducer,
     basket: basketReducer,
-    // favorite: favoriteReducer,
     modal: modalReducer,
 })
